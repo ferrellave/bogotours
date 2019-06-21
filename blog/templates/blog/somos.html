@@ -1,0 +1,33 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}Ferre-Llave Colombia - Quienes Somos{% endblock title %}
+
+{% block blog_content %}
+
+<section id="somos" class="somos">
+<h2><span><img src="/static/img/somos.png"></span>Quienes Somos</h2>
+<div><h4>Nosotros:</h4><p>Somos especialistas en Suministros, plomeria, cerrajería, eléctricos, construcción, reparaciones, mantenimientos, adecuaciones. Tenemos las mejores ofertas en Carcazas, controles, mandos, llaves de seguridad, llaves de punto, llaves de regata, cerraduras ECT, llaves para motos y servicio de cerrajería. </p></br>
+<h4>Objetivo:</h4><p>Contamos con un equipo idóneo donde nuestra principal misión es la completa satisfacción de nuestros clientes utilizando materiales de primera calidad y con el respaldo que su negocio necesita.</p>
+</br>
+<h4>Valores</h4><p>Seguridad, confianza y honestidad son los valores que transmitimos para asegurar servicios competitivos.</p>
+</div>
+<h3>Nuestro equipo:</h3>
+<article>
+    <img src="/static/img/logo.png">
+    <h4>Richard Pacheco</h4>
+</article>
+<article>
+    <img src="/static/img/logo.png">
+    <h4>Tatiana Pacheco</h4>
+</article>
+</section>
+
+<div class="cotiza">
+	<p>Realiza tus cotizaciones en linea y ahorra tiempo.</p>
+	<a href="{% url 'blog.contacto'%}">Contactanos</a>
+</div>
+<a href="{%url 'blog.productos'%}">
+<img width="100%" src="/static/img/materiales.jpg">
+</a>
+
+{% endblock blog_content %}

@@ -1,0 +1,35 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}Ferre-Llave Colombia - Productos{% endblock title %}
+
+{% block blog_content %}
+<section id="productos" class="productos">
+<h2><span><img src="/static/img/productos.png"></span>Productos de calidad: Las mejores ofertas, promociones y descuentos.</h2>
+<div class="categorias">
+
+{% for categoria in categoria %}
+  <h3 id="cat{{categoria.id}}">{{categoria.titulo}}</h3>
+    {%for producto in producto%}
+    {%if producto.categoria.id == categoria.id%}
+    <article>
+        <figure>
+        {%if producto.foto%}<img src="/media/{{producto.foto}}">{%endif%}
+        </figure>
+        <h4>{{producto.titulo}}</h4>
+        <h5>Servicio: {{producto.categoria}}</h5>
+ <!--       <button>Ver Producto</button> -->
+    </article>
+    {%else%}
+    {%endif%}
+    {%endfor%}
+{%endfor%}
+
+<div class="hey">
+<a href="{%url 'blog.inicio'%}"><h5><img src="/static/img/back.png"> Explore más productos y servicios</h5></a>
+{% include 'blog/modules/_banner.html' %}
+</div>
+
+</div>
+</section>
+
+{% endblock blog_content %}

@@ -1,0 +1,21 @@
+                <div class="banner">
+    <div>
+        <ul id="banner-ul" class="banner-ul1">
+        {%for categoria in categoria%}
+        <li><a onclick="banner{{categoria.numero}}()"><img src="/media/{{categoria.foto}}"><span>{{categoria.titulo}}</br><button onclick="location.href={% url 'blog.productos'%}">Ver Productos</button></span><div>
+        {%for marca in marca%}
+        {%if marca.categoria.id == categoria.id%}
+        <img width="40px" src="/media/{{marca.foto}}">
+        {%endif%}
+        {%endfor%}
+        </div></a></li>
+        {%endfor%}
+        </ul>
+    </div> 
+</div>
+
+<div class="galery">
+	{%for categoria in categoria%}
+	<a onclick="banner{{categoria.numero}}()"><img src="/media/{{categoria.foto}}"><span>{{categoria.titulo}}</span></a>
+	{%endfor%}
+</div>
