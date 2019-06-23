@@ -1,33 +1,32 @@
+
+
+
 <section class="portada">
 <div class="swiper-container">
 <div class="swiper-wrapper">
 
     <div class="swiper-slide">
-    <div class="banner">
-        <img class="overlogo" src="/resources/img/go.png">
+    <div class="banner" id="banner1">
+    <img class="overlogo" src="/resources/img/go.png">
     <h3>Bogotá Walks And Tours</h3>
-     <img width="100%" height="100%" src="/resources/img/header4.jpg">
     </div>
     </div>  
     <div class="swiper-slide">
-        <div class="banner">
+        <div class="banner" id="banner2">
             <img class="overlogo" src="/resources/img/go.png">
     <h3>Interactive Tours</h3>
-     <img width="100%" height="100%" src="/resources/img/header1.jpg">
     </div>  
      </div>	
     <div class="swiper-slide">
-        <div class="banner">
+        <div class="banner" id="banner3">
             <img class="overlogo" src="/resources/img/go.png">
     <h3>Informative Tours</h3>
-     <img width="100%" height="100%" src="/resources/img/header2.jpg">
     </div> 
      </div>
     <div class="swiper-slide">
-        <div class="banner">
+        <div class="banner" id="banner4">
             <img class="overlogo" src="/resources/img/go.png">
-    <h3>Book Today</h3>
-     <img width="100%" height="100%" src="/resources/img/header3.jpg">
+    <h3>Top Tours Bogotá</h3>
     </div>  
      </div>
 
@@ -39,5 +38,13 @@
 </section>
 
 <style type="text/css">
-    .overlogo{position: absolute; top:40%;right: 40px;width: 130px;}
+    .banner{position: relative;width: 100%;height: 100%;overflow: hidden;}
+    .banner h3{width:100%;text-align:center;text-transform:uppercase;position: relative;padding-top: 200px;background:rgba(0,0,0,0);font-size: 60px;color: white;}
+    .banner a{display:inline-block;position: absolute;bottom: 25%;right: 20%;background: red;padding: 20px 30px;font-size: 40px;color: white;border-radius: 10px;}
+    .banner img{width: 100%;height: auto;}
+    .overlogo{position: absolute; top:100px;right: 40px;width: 130px!important;height: auto;}
+    #banner1{background: url(/resources/img/header4.jpg)no-repeat center center;background-size: cover;background-attachment: fixed;}
+    #banner2{background: url(/resources/img/header1.jpg)no-repeat center center;background-size: cover;background-attachment: fixed;}
+    #banner3{background: url(/resources/img/header2.jpg)no-repeat center center;background-size: cover;background-attachment: fixed;}
+    #banner4{background: url(/resources/img/header3.jpg)no-repeat center center;background-size: cover;background-attachment: fixed;}
 </style>

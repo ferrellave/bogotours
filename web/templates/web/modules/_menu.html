@@ -2,20 +2,20 @@
     <p>Follow us:</p>
     <a href=""><img src="/resources/img/facebook.png"></a>
     <a href=""><img src="/resources/img/whatsapp.png"></a>
-    <span> +57 305 481 4058. / contact@bogotours.co</span>  
+    <span><img src="/resources/img/world.png"> +57 305 481 4058. / contact@bogotours.co  <a href=""><img src="/resources/img/logo.png">Español</a>  <a href=""><img src="/resources/img/logo.png">English</a> </span>  
 </div>
 <nav id="menu-lefts" class="menu-left">
     <a id="icon" href="/"><img src="/resources/img/logo.png"></a>
     <ul>
     <li><a href="{% url 'web.home' %}">Home</a></li>
-    <li><a href="{% url 'web.item' %}">Tours</a></li>
+    <li><a href="{% url 'web.item' %}">Tour</a></li>
+    <li><a href="#" onclick="menutours()">All Tours <img src="/resources/img/close.png"></a></li>
+    <li><a href="{% url 'web.us' %}">Blog</a></li>
     <li><a href="{% url 'web.us' %}">About us</a></li>
     <li><a href="{% url 'web.contact' %}">Contact</a></li>
-    <li><a href="#">English</a></li>
-    <li><a href="#">Spanish</a></li>
     </ul>
 </nav>
-<nav id="menutours">
+<nav id="menutours" class="menutours-close">
     <table>
         <td>
             <ul>
@@ -63,9 +63,48 @@
 </nav>
 
 <style type="text/css">
-    #menutours{background: #fff;padding: 20px;}
-    #menutours table td ul li a{color: #000; font-size: 14px;}
+        .menu-left{-webkit-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);
+-moz-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);
+box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 100px; width: 100%;height: auto;background: #3365f6;top: 0;left: 0;position: relative;}
+    #menu-left{background: black;position: fixed;z-index: 11;top: 0;left:0;overflow: hidden;}
+    #menu-lefts ul{position: absolute;right: 0px;top: 0px;padding-right: 100px;padding-top: 10px;padding-bottom: 10px;}
+    #menu-lefts ul li a img{width: 20px;margin-left: 5px;display: inline-block;vertical-align: middle;}
+    #menu-lefts ul li{display:inline-block;text-align: center;padding: 10px;opacity: 0.6;}
+    #menu-lefts ul li:hover{opacity: 1;}
+    #menu-lefts ul li a{display:inline-block;vertical-align:middle;font-size: 12px;display: block;color: white;width: 100%;}
+    #icon{display:inline-block;display: block;}
+    #icon img{height: 40px;}
+
+    .phone{background:rgba(0,0,0,0.9);padding: 5px 100px; font-size: 14px;text-align: left;padding-right: 20px;position: relative;}
+    .phone img{display: inline-block;width: 25px;vertical-align: middle;padding: 5px;margin-left: 1px;}
+    .phone p{display: inline-block;color: white;vertical-align: middle;}
+    .phone span{position: absolute;right: 100px;color: #fff;}
+
+    #menutours{background: #fff;overflow: hidden;}
+    .menutours-open{height: auto;padding: 20px 80px;}
+    .menutours-close{height: 0px; padding: 0;}
+    #menutours table td ul li a{color: #000; font-size: 14px;font-weight: normal}
     #menutours table td ul li{padding: 5px 20px;}
     #menutours table td ul li a strong{border-bottom:1px solid #333;}
     #menutours table td{display: inline-block;vertical-align: top;}
+
+    @media screen and (max-width:833px){
+        .phone{padding: 5px;}
+        .phone span{position: relative;right: 0;}
+        .phone p{display: block;}
+        .menu-left{padding: 10px;}
+        #menu-lefts{position: relative;}
+        #menu-lefts ul{position: relative;padding: 5px;}
+    }
 </style>
+
+<script type="text/javascript">
+    function menutours(){
+       var menutours = document.getElementById("menutours")
+       if(menutours.className=='menutours-close'){
+        menutours.className='menutours-open'
+       } else{
+        menutours.className='menutours-close'
+       }
+    }
+</script>

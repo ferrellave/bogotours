@@ -8,121 +8,21 @@
     <script type="text/javascript" src="/resources/js/jquery-2.1.3.min.js"></script>
     <link rel="stylesheet" href="/resources/swiper/css/swiper.css?v=1.0.2">
     <link rel="stylesheet" href="/resources/css/main.css?v=1.0.0">
-    <link rel="icon" type="image/png" sizes="16x16" href="/resources/img/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/resources/img/go.png">
 </head>
 <body>
-    {% include 'web/modules/_menu.html' %}
+{% include 'web/modules/_loader.html' %}
 
-<section id="loader" class="loader">
-<div>
-<img src="/resources/img/loading2.gif">
-</div>
-</section>
+    {% include 'web/modules/_menu.html' %}  
+    <div id="container" class="container">
+    <div class="border">
+    {% block content %}{% endblock content %}
+    {% include 'web/modules/_whatsapp.html' %}
+    {% include 'web/modules/_footer.html' %}
+    </div>
+    </div>
 
-<style type="text/css">
-    #loader{text-align:center;background: #060606 url(/resources/img/go.png)no-repeat center center;background-size:100px;z-index: 20;position: fixed;overflow: hidden;width: 100%;height: 100%;padding-top:15%;top:0;left: 0;}
-    .loader{display: block;}
-    .loaders{display: none;}
-    #loader div{display:block;width: 60px;margin: 0 auto;padding-top: 15%;border-radius:50%;background: white;padding: 1px;}
-    #loader div img{width: 100%;}
-</style>
-<script type="text/javascript">
-
-    loader();
-
-    function loader(){
-        setTimeout(function(){ 
-            document.getElementById("loader").className = "loaders";
-         }, 2000);
-    }
-</script>
-
-<div id="container" class="container">
-<div class="border">
-
-<a id="whatsapp">¿Necesitas ayuda?</a>
-
-<style type="text/css">
-    #whatsapp{position: fixed;z-index:15;right:-40px;bottom:100px;width: 260px;border-radius:100px;background: green url(/resources/img/whatsapp.png)no-repeat left 10px center;background-size:40px;color: white;display: block;padding:20px 5px;padding-left: 60px;font-size:18px;}
-    #whatsapp:hover{right: -30px;}
-</style>
-
-{% block content %}{% endblock content %}
-{% include 'web/modules/_footer.html' %}
-</div>
-</div>
-
-
-<!-- Initialize Swiper -->
-<script src="/resources/swiper/js/swiper.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-    var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        paginationClickable: true,
-        spaceBetween: 30,
-        centeredSlides: true,
-        autoplay: 7000,
-        autoplayDisableOnInteraction: true
-    });
-    </script>
-
-    <section class="carrusel">
-         <!-- Demo styles -->
-    <style>
-    html, body {
-        position: relative;
-        height: 100%;
-    }
-    body {
-        background: #eee;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color:#000;
-        margin: 0;
-        padding: 0;
-    }
-    .swiper-container {
-        width: 100%;
-        background: black;
-        
-    }
-    .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        
-Center slide text vertically 
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-    }
-    </style>
-
-
-<section id="over">
-    <a href="" id="close"><img src="/resources/img/close.png"><p>Close</p></a>
-    <div id="page"></div>
-</section>
-
-<style type="text/css">
-    #over{width: 100%;height: 100%;background: rgba(0,0,0,0.6);}
-    #close{width: 100%;display: block;text-align: right;background: #000;}
-    #close p{display: inline-block;vertical-align: middle;color: #fff;padding: 10px;}
-    #close img{height: 60px;display: inline-block;vertical-align: middle;}
-</style>
+{% include 'web/modules/_swiperconf.html' %}
 
 </body>
 </html>
