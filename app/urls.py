@@ -9,6 +9,6 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns.append(
         url(
-            regex=r'^uploads/(?P<path>.*)$',
+            regex=r'^media/(?P<path>.*)$',
             view='django.views.static.serve',
             kwargs={'document_root': settings.MEDIA_ROOT}))
