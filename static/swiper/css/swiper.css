@@ -190,11 +190,11 @@ background-image: url("/static/img/right.png")!important;
 }
 /* Bullets */
 .swiper-pagination-bullet {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   display: inline-block;
-  border-radius: 100%;
-  background: #000;
+  border-radius: 5px;
+  background: #3365f6;
   opacity: 0.8;
 }
 button.swiper-pagination-bullet {
@@ -215,13 +215,13 @@ button.swiper-pagination-bullet {
 }
 .swiper-pagination-bullet-active {
   opacity: 1;
-  background: black;
+  background: red;
 }
 .swiper-pagination-white .swiper-pagination-bullet-active {
   background: #fff;
 }
 .swiper-pagination-black .swiper-pagination-bullet-active {
-  background: #000;
+  background: red;
 }
 .swiper-container-vertical > .swiper-pagination-bullets {
   right: 10px;
