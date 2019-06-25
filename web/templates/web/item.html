@@ -3,37 +3,35 @@
 {% block web_content %}
 
 <section class="thistour">
-	<header></header>
+	<header id="thistour-{{item.id}}"></header>
     <div class="thistour-info">
-        <h2>Free Graffiti Tour Bogotá</h2>
-        <h1>Want to know the stories behind Toxicomano, Guache and others? Want to learn how graffiti fits into Bogotá’s history and allure? join us in this tour not only of Colombia’s history as told by art!</h1>
+        <h2>{{item.title}}</h2>
+        <h1>{{item.description|safe}}</h1>
         <div class="thistour-icons">
             <figure><img src="/static/img/calendar.png"><p>Every Day</p></figure>
             <figure><img src="/static/img/time.png"><p>3 Hours</p></figure>
             <figure><img src="/static/img/clock.png"><p>10:00 am & 2:00 pm</p></figure>
             <figure><img src="/static/img/info.png"><p>Free Tour</p></figure>
         </div>
-        <h4>Want to know the stories behind Toxicomano, Guache and others? Want to learn how graffiti fits into Bogotá’s history and allure?</h4>
-        <p>Bogotá has become a world reference in graffiti. It boasts impressive murals and street art that place it above cities like Miami, Amsterdam, Rio, and Ciudad de México. Its rise as one of the key city-canvases in Latin America has made it an attractive destination for the curious tourist and the bold artist. Would you have guessed?</p>
-        <p>As with graffiti everywhere else, Bogotá’s history with the art has often been tense. But great art can overcome negative labels. Right now, no one would call it vandalism. It has struggled but has earned its place and the city is better for it. The mixture of social and political commentary with a twist of local and foreign styles make Bogotá’s graffiti truly a sight to behold.</p>
-        <p>So, join us in this tour not only of Colombia’s history as told by art, but a tour of Bogotá’s streets as a curated museum of amazing artists!</p>
-        <img src="/static/img/tours/01/01.png">
-        <p>Our tour starts in front of Bogotá’s Art Museum of the Central Bank, where we’ll go through an overview of the city’s art history in relation to graffiti. Here we’ll see pieces by some of our local artists, like Ledania and a 3 manos.</p>
-        <p>Following our brief introduction, we’ll jump to Chorro de Quevedo and visit a narrow street packed with graffiti that retell our indigenous ancestry and its relation of the city. Here you’ll get to know the work of Carlos Trilleras, all inspired in Colombia’s indigenous cultures. Then we’ll stop by a couple murals painted by Wosnian and Ocio 4, two graffiti groups.</p>
-        <p>The next stop is at La Concordia market square. This market square has been an important tension spot, meeting point and melting pot of ideas and influences. It has been key in defining the identity of downtown Bogotá and the kinds of ideas street artist put in their works.</p>
-        <img src="/static/img/tours/01/02.jpg">
-        <p>We’ll keep moving through picturesque streets, scanning more graffiti along the way. You’ll get to see some of the best graffiti authored by women and their role in the propagation of this art. Authors like Bastardilla, Lik mi, Zas, Hera, and others color and give life to this part of the city.</p>
-        <p>Next, we will stop at the Eje Ambiental, a promenade that marks the northern limit of Bogotá’s historical center. Here we can see how some artists intervene some local monuments with their art. This promenade will take us to the Journalists’ Park, where journalists, poets and writers used to gather in the 60s.</p>
-        <p>The last stop on our tour will be at Hostal SC. Here we will close our artsy tour with some final words and artists and visit an amazing souvenir shop where you’ll find articles with all the art we saw throughout our walk.</p>
+        {%for photo in photo%}
+        {%if photo.item.title == item.title%}
+        <h4>{{photo.title}}</h4>
+        <p>{{photo.description|safe}}</p>
+        <img src="/media/{{photo.file}}">
+        </br></br>
+        {%endif%}
+        {%endfor%}
         <strong>Recommendations:</strong>
         <span>* Bring confortable shoes. The activity requires a 2-hours walk</span>
         <span>* Keep hydrating constantly and use sunscreen</span>
         <span>* Remember all safety indications from the tour guide before the tour in order to avoid problems</span>
         <span>* Do not walk away from the group</span>
+        </br></br>
         <strong>Important Information:</strong>
-        <p>The meeting spot is right in front of Museo Botero. You’ll always one of our guides holding a Yellow Umbrella at the corresponding times.</p>
-        <img src="/static/img/tours/01/03.jpg">
-        <h6>Yellow Umbrella in front of Museo Botero</h6>
+        <span>The meeting spot is right in front of Museo Botero. You’ll always one of our guides holding a Yellow Umbrella at the corresponding times.</span>
+        </br></br>
+        <img src="/media/{{item.picture}}">
+        <h6>{{item.title}}</h6>
         <table>
             <tr>
                 <td><strong>Departure:</strong></td>
@@ -64,7 +62,7 @@
 </section>
 
 <style type="text/css">
-	.thistour header{background: #333 url(/static/img/tours/01/00.jpg)no-repeat center center;background-size:100%;background-attachment:fixed; width: 100%;height:400px;}
+    #thistour-{{item.id}} {background: #333 url(/media/{{item.picture}})no-repeat center center;background-size:cover;background-attachment:fixed; width: 100%;height:60%;}
 	.thistour-info{background:#fff;padding: 20px 80px;margin:0 auto;width: 70%;}
 	.thistour-info p{display:block;text-align: left;line-height: 2;color: #333;padding: 20px 0px;}
 	.thistour-info h1{text-align: left;color: #777;font-size: 18px;font-weight: normal;}
