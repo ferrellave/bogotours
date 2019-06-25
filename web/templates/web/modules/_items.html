@@ -6,11 +6,13 @@
     {%if item.category.title == category.title %}
     <article>
         <figure>
+        <a href="{%url 'web.item' item.slug%}">
         <img src="/media/{{item.picture}}">
-        <span>Check the price</span>
+        </a>
+        <span>See More...</span>
         </figure>
         <div>
-        <h4>{{item.title}}</h4>
+        <h4>{{item.title}}</h4> 
         <p>{{item.description}}</p>
          <table class="thistour-icons">
             <td><img src="/static/img/calendar.png"><p>Every Day</p></td>

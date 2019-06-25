@@ -8,11 +8,10 @@
     <a id="icon" href="/"><img src="/static/img/logo.png"></a>
     <ul>
     <li><a href="{% url 'web.home' %}">Home</a></li>
-    <li><a href="{% url 'web.item' %}">Tour</a></li>
     <li><a href="#" onclick="menutours()">All Tours <img src="/static/img/close.png"></a></li>
     <li><a href="{% url 'web.us' %}">Blog</a></li>
     <li><a href="{% url 'web.us' %}">About us</a></li>
-    <li><a href="{% url 'web.contact' %}">Contact</a></li>
+    <li><a href="{% url 'web.contact' %}">Contact us</a></li>
     </ul>
 </nav>
 <nav id="menutours" class="menutours-close">
@@ -21,9 +20,9 @@
         <td>
             <ul>
                 <li><a href=""><p><strong>{{section.title}}</strong></p></a></li>
-                {%for item in item%}
-                {%if item.section.title == section.title%}
-                <li><a href=""><p>{{item.title}}</p></a></li>
+                {%for items in items%}
+                {%if items.section.title == section.title%}
+                <li><a href=""><p>{{items.title}}</p></a></li>
                 {%endif%}
                 {%endfor%}
             </ul>

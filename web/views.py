@@ -23,6 +23,7 @@ def home(request):
     template = 'web/home.html'
     category = Category.objects.all().order_by('id')
     item = Item.objects.all().order_by('id')
+    items = Item.objects.all().order_by('id')
     section = Section.objects.all().order_by('id')
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
@@ -35,6 +36,7 @@ def us(request):
     template = 'web/us.html'
     category = Category.objects.all().order_by('id')
     item = Item.objects.all().order_by('id')
+    items = Item.objects.all().order_by('id')
     section = Section.objects.all().order_by('id')
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
@@ -46,6 +48,7 @@ def items(request):
     template = 'web/items.html'
     category = Category.objects.all().order_by('id')
     item = Item.objects.all().order_by('id')
+    items = Item.objects.all().order_by('id')
     section = Section.objects.all().order_by('id')
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
@@ -53,11 +56,12 @@ def items(request):
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
-def item(request):
+def item(request, slug):
 
     template = 'web/item.html'
     category = Category.objects.all().order_by('id')
-    item = Item.objects.all().order_by('id')
+    item = Item.objects.get(slug = slug)
+    items = Item.objects.all().order_by('id')
     section = Section.objects.all().order_by('id')
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
@@ -70,6 +74,7 @@ def blog(request):
     template = 'web/blog.html'
     category = Category.objects.all().order_by('id')
     item = Item.objects.all().order_by('id')
+    items = Item.objects.all().order_by('id')
     section = Section.objects.all().order_by('id')
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
@@ -82,6 +87,7 @@ def blogs(request):
     template = 'web/blogs.html'
     category = Category.objects.all().order_by('id')
     item = Item.objects.all().order_by('id')
+    items = Item.objects.all().order_by('id')
     section = Section.objects.all().order_by('id')
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
@@ -92,6 +98,7 @@ def blogs(request):
 def contact(request):
     category = Category.objects.all().order_by('id')
     item = Item.objects.all().order_by('id')
+    items = Item.objects.all().order_by('id')
     section = Section.objects.all().order_by('id')
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
