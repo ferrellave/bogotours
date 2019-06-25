@@ -1,169 +1,37 @@
-<h2>Top Tours Bogotá</h2>
-<h3>Tours based on tips, starting every day at 10am and 2pm!</h3>
+{% for category in category %}
+<h2>{{category.title}}</h2>
+<h3>{{category.description}}</h3>
 <section class="tours">
+    {%for item in item %}
+    {%if item.category.title == category.title %}
     <article>
         <figure>
-        <img src="/static/img/tours/01/00.jpg">
+        <img src="/media/{{item.picture}}">
         <span>Check the price</span>
         </figure>
         <div>
-        <h4>Graffiti Tour Bogotá</h4>
-        <p>Want to know the stories behind Toxicomano, Guache and others? Want to learn how graffiti fits into Bogotá’s history and allure? join us in this tour not only of Colombia’s history as told by art!</p>
+        <h4>{{item.title}}</h4>
+        <p>{{item.description}}</p>
          <table class="thistour-icons">
             <td><img src="/static/img/calendar.png"><p>Every Day</p></td>
             <td><img src="/static/img/time.png"><p>3 Hours</p></td>
             <td><img src="/static/img/clock.png"><p>10:00 am & 2:00 pm</p></td>
-            <td><img src="/static/img/info.png"><p>Top Tour</p></td>
+            <td><img src="/static/img/info.png"><p>{{item.section}}</p></td>
         </table>
         </div>
         <div>
-            <img src="/static/img/tours/01/04.jpg"><img src="/static/img/tours/01/01.jpg"><img src="/static/img/tours/01/02.jpg"><img src="/static/img/tours/01/03.jpg">
+            {% for photo in photo %}
+            {%if photo.item.title == item.title%}
+            <img src="/media/{{photo.file}}">
+            {%endif%}
+            {%endfor%}
         </div>
     </article>
-    <article>
-        <figure>
-        <img src="/static/img/tours/02/00.jpg">
-        <span>Check the price</span>
-        </figure>
-        <div>
-        <h4>Walking Tour Bogotá</h4>
-        <p>Join us in this amazing walking tour through Bogotá's downtown district and learn all about the city's history and culture, making friends along the way.</p>
-         <table class="thistour-icons">
-            <td><img src="/static/img/calendar.png"><p>Every Day</p></td>
-            <td><img src="/static/img/time.png"><p>3 Hours</p></td>
-            <td><img src="/static/img/clock.png"><p>10:00 am or 2:00 pm</p></td>
-            <td><img src="/static/img/info.png"><p>Top Tour</p></td> 
-        </table>
-        </div>
-        <div>
-            <img src="/static/img/tours/02/04.jpg"><img src="/static/img/tours/02/01.jpg"><img src="/static/img/tours/02/02.jpg"><img src="/static/img/tours/02/03.jpg">
-        </div>
-    </article>
-    <article>
-        <figure>
-        <img src="/static/img/tours/03/00.jpg">
-        <span>Check the price</span>
-        </figure>
-        <div>
-        <h4>Biking Tour Bogotá</h4>
-        <p>Why walk when you can ride? Join one of our expert guides in this amazing bike tour around downtown Bogotá and learn about the history and culture of the city.</p>
-         <table class="thistour-icons">
-            <td><img src="/static/img/calendar.png"><p>Every Day</p></td>
-            <td><img src="/static/img/time.png"><p>3.5 Hours</p></td>
-            <td><img src="/static/img/clock.png"><p>10:00 am or 2:00 pm</p></td>
-            <td><img src="/static/img/info.png"><p>Top Tour</p></td> 
-        </table>
-        </div>
-        <div>
-            <img src="/static/img/tours/03/04.jpg"><img src="/static/img/tours/03/01.jpg"><img src="/static/img/tours/03/02.jpg"><img src="/static/img/tours/03/03.jpg">
-        </div>
-    </article>
-</section>
+    {%endif%}
+    {%endfor%}
 
-<h2>Shared Tours Bogotá</h2>
-<h3>Small-group tour with fellow travelers at a very competitive price!</h3>
-<section class="tours">
-    <article>
-        <figure>
-        <img src="/static/img/tours/04/00.jpg">
-        <span>Check the price</span>
-        </figure>
-        <div>
-        <h4>Monserrate + Gold Museum Bogota City Tour</h4>
-        <p>Join us in a different walk through Bogotá’s iconic downtown! Visit important historical landmarks, learn the local history and explore two amazing museums: Museo de Botero and the Gold Museum!</p>
-         <table class="thistour-icons">
-            <td><img src="/static/img/calendar.png"><p>Every Day</p></td>
-            <td><img src="/static/img/time.png"><p>3 Hours</p></td>
-            <td><img src="/static/img/clock.png"><p>9:00 am</p></td>
-            <td><img src="/static/img/info.png"><p>Shared Tour</p></td>
-        </table>
-        </div>
-        <div>
-            <img src="/static/img/tours/01/00.jpg"><img src="/static/img/tours/01/01.png"><img src="/static/img/tours/01/02.jpg"><img src="/static/img/tours/01/03.jpg">
-        </div>
-    </article>
-    <article>
-        <figure>
-        <img src="/static/img/tours/06/00.jpg">
-        <span>Check the price</span>
-        </figure>
-        <div>
-        <h4>Graffiti Tour Bogotá</h4>
-        <p>Want to know the stories behind Toxicomano, Guache and others? Want to learn how graffiti fits into Bogotá’s history and allure? join us in this tour not only of Colombia’s history as told by art!</p>
-         <table class="thistour-icons">
-            <td><img src="/static/img/calendar.png"><p>Every Day</p></td>
-            <td><img src="/static/img/time.png"><p>3 Hours</p></td>
-            <td><img src="/static/img/clock.png"><p>10:00 am & 2:00 pm</p></td>
-            <td><img src="/static/img/info.png"><p>Free Tour</p></td>
-        </table>
-        </div>
-        <div>
-            <img src="/static/img/tours/01/00.jpg"><img src="/static/img/tours/01/01.png"><img src="/static/img/tours/01/02.jpg"><img src="/static/img/tours/01/03.jpg">
-        </div>
-    </article>
 </section>
-
-<h2>Best Tours Bogotá</h2>
-<h3>Chose any tour with exclusive guide and transportation for your group!</h3>
-<section class="tours">
-    <article>
-        <figure>
-        <img src="/static/img/tours/07/00.jpg">
-        <span>Check the price</span>
-        </figure>
-       <div>
-        <h4>Graffiti Tour Bogotá</h4>
-        <p>Want to know the stories behind Toxicomano, Guache and others? Want to learn how graffiti fits into Bogotá’s history and allure? join us in this tour not only of Colombia’s history as told by art!</p>
-         <table class="thistour-icons">
-            <td><img src="/static/img/calendar.png"><p>Every Day</p></td>
-            <td><img src="/static/img/time.png"><p>3 Hours</p></td>
-            <td><img src="/static/img/clock.png"><p>10:00 am & 2:00 pm</p></td>
-            <td><img src="/static/img/info.png"><p>Free Tour</p></td>
-        </table>
-        </div>
-        <div>
-            <img src="/static/img/tours/01/00.jpg"><img src="/static/img/tours/01/01.png"><img src="/static/img/tours/01/02.jpg"><img src="/static/img/tours/01/03.jpg">
-        </div>
-    </article>
-    <article>
-        <figure>
-        <img src="/static/img/tours/08/00.jpg">
-        <span>Check the price</span>
-        </figure>
-       <div>
-        <h4>Graffiti Tour Bogotá</h4>
-        <p>Want to know the stories behind Toxicomano, Guache and others? Want to learn how graffiti fits into Bogotá’s history and allure? join us in this tour not only of Colombia’s history as told by art!</p>
-         <table class="thistour-icons">
-            <td><img src="/static/img/calendar.png"><p>Every Day</p></td>
-            <td><img src="/static/img/time.png"><p>3 Hours</p></td>
-            <td><img src="/static/img/clock.png"><p>10:00 am & 2:00 pm</p></td>
-            <td><img src="/static/img/info.png"><p>Free Tour</p></td>
-        </table>
-        </div>
-        <div>
-            <img src="/static/img/tours/01/00.jpg"><img src="/static/img/tours/01/01.png"><img src="/static/img/tours/01/02.jpg"><img src="/static/img/tours/01/03.jpg">
-        </div>
-    </article>
-    <article>
-        <figure>
-        <img src="/static/img/tours/09/00.jpg">
-        <span>Check the price</span>
-        </figure>
-       <div>
-        <h4>Graffiti Tour Bogotá</h4>
-        <p>Want to know the stories behind Toxicomano, Guache and others? Want to learn how graffiti fits into Bogotá’s history and allure? join us in this tour not only of Colombia’s history as told by art!</p>
-         <table class="thistour-icons">
-            <td><img src="/static/img/calendar.png"><p>Every Day</p></td>
-            <td><img src="/static/img/time.png"><p>3 Hours</p></td>
-            <td><img src="/static/img/clock.png"><p>10:00 am & 2:00 pm</p></td>
-            <td><img src="/static/img/info.png"><p>Free Tour</p></td>
-        </table>
-        </div>
-        <div>
-            <img src="/static/img/tours/01/00.jpg"><img src="/static/img/tours/01/01.png"><img src="/static/img/tours/01/02.jpg"><img src="/static/img/tours/01/03.jpg">
-        </div>
-    </article>
-</section>
+{%endfor%}
 
 <style type="text/css">
 	.tours{text-align:center;background;padding: 5px 80px;background: white;}
@@ -174,14 +42,15 @@ box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.52);background:white;text-align:left;di
 .tours article figure{position:relative;width: 40%;height: 280px;overflow: hidden;display: inline-block;vertical-align: top;}
 .tours article a{background: black;color: white;padding: 5px;display: inline-block;margin-top: 10px;}
 .tours h4{text-align:left;padding: 20px 0;font-size: 20px;}
-.tours div{display: inline-block;width: 29%;padding-left: 20px;}
+.tours div{display: inline-block;width: 29%;padding-left: 20px;vertical-align: top;}
 .tours div img{display: inline-block;width: 49%;height: 100px;}
+.thistour-icons img{height: auto!important;}
 .tours article figure span{position:absolute;left: 20px;bottom:20px;background: green;color: white;padding: 10px 30px;font-size:14px;font-weight: bold;}
 
 @media screen and (max-width:833px){
         .tours{padding: 5px;}
         .tours article figure{width: 100%;height: auto;}
-        .tours div{width: 100%;height: auto;}
+        .tours div{width: 100%;height: auto;padding: 5px;}
         .tours div img{width: 100%;height: auto;}
     }
 

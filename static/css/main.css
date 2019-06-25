@@ -32,7 +32,7 @@ a{color: red;font-weight: bold;}
 .iniciop{padding: 20px;text-align: center;background: red;color: #fff;font-size: 22px;}
 .iniciop a{display: inline-block;padding: 20px;background: #150000;color: white;margin-top: 30px;border-radius: 50px;}
 
-.border{border-radius: 3px;overflow: hidden;}
+.border{overflow: hidden;}
 .tours{text-align:center;background;padding: 5px 80px;background: white;}
 .tours article{-webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.52);
 -moz-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.52);

@@ -21,52 +21,87 @@ from django.utils.decorators import available_attrs, decorator_from_middleware
 def home(request):
 
     template = 'web/home.html'
-    blog = Blog.objects.all().order_by('-titulo')
+    category = Category.objects.all().order_by('id')
+    item = Item.objects.all().order_by('id')
+    section = Section.objects.all().order_by('id')
+    photo = Photo.objects.all().order_by('id')
+    blog = Blog.objects.all().order_by('-id')
+    tag = Tag.objects.all().order_by('-id')
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
 def us(request):
 
     template = 'web/us.html'
-    blog = Blog.objects.all().order_by('-titulo')
+    category = Category.objects.all().order_by('id')
+    item = Item.objects.all().order_by('id')
+    section = Section.objects.all().order_by('id')
+    photo = Photo.objects.all().order_by('id')
+    blog = Blog.objects.all().order_by('-id')
+    tag = Tag.objects.all().order_by('-id')
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 def items(request):
 
     template = 'web/items.html'
-    blog = Blog.objects.all().order_by('-titulo')
+    category = Category.objects.all().order_by('id')
+    item = Item.objects.all().order_by('id')
+    section = Section.objects.all().order_by('id')
+    photo = Photo.objects.all().order_by('id')
+    blog = Blog.objects.all().order_by('-id')
+    tag = Tag.objects.all().order_by('-id')
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
 def item(request):
 
     template = 'web/item.html'
-    blog = Blog.objects.all().order_by('-titulo')
+    category = Category.objects.all().order_by('id')
+    item = Item.objects.all().order_by('id')
+    section = Section.objects.all().order_by('id')
+    photo = Photo.objects.all().order_by('id')
+    blog = Blog.objects.all().order_by('-id')
+    tag = Tag.objects.all().order_by('-id')
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
 def blog(request):
 
     template = 'web/blog.html'
-    blog = Blog.objects.all().order_by('-titulo')
+    category = Category.objects.all().order_by('id')
+    item = Item.objects.all().order_by('id')
+    section = Section.objects.all().order_by('id')
+    photo = Photo.objects.all().order_by('id')
+    blog = Blog.objects.all().order_by('-id')
+    tag = Tag.objects.all().order_by('-id')
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
 def blogs(request):
 
     template = 'web/blogs.html'
-    blog = Blog.objects.all().order_by('-titulo')
+    category = Category.objects.all().order_by('id')
+    item = Item.objects.all().order_by('id')
+    section = Section.objects.all().order_by('id')
+    photo = Photo.objects.all().order_by('id')
+    blog = Blog.objects.all().order_by('-id')
+    tag = Tag.objects.all().order_by('-id')
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
 def contact(request):
-    blog = Blog.objects.all().order_by('-titulo')
+    category = Category.objects.all().order_by('id')
+    item = Item.objects.all().order_by('id')
+    section = Section.objects.all().order_by('id')
+    photo = Photo.objects.all().order_by('id')
+    blog = Blog.objects.all().order_by('-id')
+    tag = Tag.objects.all().order_by('-id')
     if request.method =='POST':
         formulario = FormularioContacto(request.POST)
         if formulario.is_valid():
-            titulo = 'Gracias'
+            titulo = 'Thank You From Bogotours'
             correo = formulario.cleaned_data['correo']
-            asunto = correo, 'Su mensaje ha sido enviado'
+            asunto = correo, 'Your Message to Bogotours has Send'
             mensaje = formulario.cleaned_data['mensaje']
             mail = EmailMessage(asunto, mensaje, to=[correo, 'webferrellave@gmail.com'])
             mail.send()

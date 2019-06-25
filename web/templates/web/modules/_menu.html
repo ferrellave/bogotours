@@ -2,7 +2,7 @@
     <p>Follow us:</p>
     <a href=""><img src="/static/img/facebook.png"></a>
     <a href=""><img src="/static/img/whatsapp.png"></a>
-    <span><img src="/static/img/world.png"> +57 305 481 4058. / contact@bogotours.co  <a href=""><img src="/static/img/logo.png">Español</a>  <a href=""><img src="/static/img/logo.png">English</a> </span>  
+    <span><img src="/static/img/world.png"> +57 305 481 4058. / info@bogotours.co  <a href=""><img src="/static/img/logo.png">Español</a>  <a href=""><img src="/static/img/logo.png">English</a> </span>  
 </div>
 <nav id="menu-lefts" class="menu-left">
     <a id="icon" href="/"><img src="/static/img/logo.png"></a>
@@ -17,48 +17,18 @@
 </nav>
 <nav id="menutours" class="menutours-close">
     <table>
+        {%for section in section%}
         <td>
             <ul>
-                <li><a href=""><p><strong>Gastronomy</strong></p></a></li>
-                <li><a href=""><p>Food Tour In La Candelaria</p></a></li>
-                <li><a href=""><p>BBC Brewery Visit</p></a></li>
+                <li><a href=""><p><strong>{{section.title}}</strong></p></a></li>
+                {%for item in item%}
+                {%if item.section.title == section.title%}
+                <li><a href=""><p>{{item.title}}</p></a></li>
+                {%endif%}
+                {%endfor%}
             </ul>
         </td>
-        <td>
-            <ul>
-                <li><a href=""><p><strong>Coffe Tours</strong></p></a></li>
-                <li><a href=""><p>Coffee Tasting Tour In La Candelari</p></a></li>
-                <li><a href=""><p>BBC Brewery Visit</p></a></li>
-            </ul>
-        </td>
-        <td>
-            <ul>
-                <li><a href=""><p><strong>Sightseeing Tours</strong></p></a></li>
-                <li><a href=""><p>La Candelaria Tour 3H</p></a></li>
-                <li><a href=""><p>La Candelaria + Monserrate Tour 5H</p></a></li>
-                <li><a href=""><p>La Candelaria + Museums Tour 5H</p></a></li>
-                <li><a href=""><p>La Candelaria + Monserrate + Museums 7H</p></a></li>
-                <li><a href=""><p>Graffiti Tour In La Candelaria</p></a></li>
-            </ul>
-        </td>
-        <td>
-            <ul>
-                <li><a href=""><p><strong>Nightlife</strong></p></a></li>
-                <li><a href=""><p>Andres DC Night Tour</p></a></li>
-                <li><a href=""><p>Pub Crawl Tour In La Candelaria</p></a></li>
-                <li><a href=""><p>Andres Carne de Res Chia</p></a></li>
-            </ul>
-        </td>
-        <td>
-            <ul>
-                <li><a href=""><p><strong>Layover & Transfers</strong></p></a></li>
-                <li><a href=""><p>Bogotá Layover Tour 4H</p></a></li>
-                <li><a href=""><p>Layover La Candelaria + Museums 4H</p></a></li>
-                <li><a href=""><p>Layover Bogota City Tour 8H</p></a></li>
-                <li><a href=""><p>Private Departure Transfer</p></a></li>
-                <li><a href=""><p>Private Arrival Transfer: Bogota Airport to Hotel</p></a></li>
-            </ul>
-        </td>
+        {%endfor%}
     </table>
 </nav>
 
@@ -95,6 +65,7 @@ box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 100px; width: 100%;he
         .menu-left{padding: 10px;}
         #menu-lefts{position: relative;}
         #menu-lefts ul{position: relative;padding: 5px;}
+        .menutours-open{height: auto;padding:5px;}
     }
 </style>
 
