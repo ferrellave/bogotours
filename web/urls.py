@@ -16,4 +16,5 @@ urlpatterns = [
     url(r'^tour-gallery/(?P<slug>[^\.]+)/$', 'web.views.itemgallery', name='web.itemgallery'),
     url(r'^tours/$', 'web.views.items', name='web.items'),
     url(r'^contact/$', 'web.views.contact', name='web.contact'),
+    url(r'^booking/$', 'web.views.booking', name='web.booking'),
 ]

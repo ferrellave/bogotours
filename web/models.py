@@ -167,3 +167,32 @@ class Photo(models.Model):
             date.year, date.month, date.day, self.id
         )
         super(Photo, self).save()
+
+class Booking(models.Model):
+    item = models.ForeignKey(Item, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Item")
+    date = models.DateField(blank=True, verbose_name="Date")
+    firstname = models.CharField(max_length=300, verbose_name="First Name")
+    lastname = models.CharField(max_length=300, verbose_name="Last Name")
+    phone = models.CharField(max_length=300, verbose_name="Phone")
+    email = models.CharField(max_length=300, verbose_name="Email")
+    tickets = models.IntegerField(blank=True, verbose_name="Tickets")
+    message = models.TextField(blank=True, verbose_name="Message")
+    created = models.DateTimeField(default=now, editable=False)
+    updated = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
+    slug = models.SlugField(editable=False)
+
+    class Meta:
+        ordering = ['created']
+        verbose_name = "Booking"
+        verbose_name_plural = 'Bookings'
+
+    def __unicode__(self):
+        return self.slug
+
+    def save(self):
+        super(Booking, self).save()
+        date = self.created
+        self.slug = '%i-%i-%i-booking-%i' % (
+            date.year, date.month, date.day, self.id
+        )
+        super(Booking, self).save()

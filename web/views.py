@@ -2,7 +2,7 @@ from django.shortcuts import render, render_to_response, get_object_or_404, redi
 from django.views import generic
 from django.conf import settings
 from django.core.urlresolvers import reverse_lazy
-from .forms import FormularioContacto
+from .forms import FormularioContacto, Bookingform
 from .models import *
 
 from django.contrib import messages 
@@ -125,10 +125,70 @@ def contact(request):
             correo = formulario.cleaned_data['correo']
             asunto = correo, 'Your Message to Bogotours has Send'
             mensaje = formulario.cleaned_data['mensaje']
-            mail = EmailMessage(asunto, mensaje, to=[correo, 'webferrellave@gmail.com'])
+            mail = EmailMessage(asunto, mensaje, to=[correo, 'richiepac@gmail.com'])
             mail.send()
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'), {'titulo': titulo})
     else:
         formulario = FormularioContacto()
     return render_to_response('web/contact.html', locals(),
                                 context_instance=RequestContext(request))
+
+
+def booking(request):
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(booking, self).get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        return context
+    if request.method == 'POST':
+        # Si el method es post, obtenemos los datos del formulario
+        form = Bookingform(request.POST)
+        # Comprobamos si el formulario es valido
+        if form.is_valid():
+            # En caso de ser valido, obtenemos los datos del formulario.
+            cleaned_data = form.cleaned_data
+            item = cleaned_data.get('item')
+            date = cleaned_data.get('date')
+            first = cleaned_data.get('first')
+            last = cleaned_data.get('last')
+            phone = cleaned_data.get('phone')
+            tickets = cleaned_data.get('tickets')
+            email = cleaned_data.get('email')
+            message = cleaned_data.get('message')
+            # E instanciamos un objeto User, con el username y password
+        #    user_model = User.objects.create_user(username=username, password=password)
+            # Y guardamos el objeto, esto guardara los datos en la db.
+        #    user_model.save()
+            # Ahora, creamos un objeto UserProfile
+            booking = Booking()
+            # Al campo user le asignamos el objeto user_model
+           #track user_profile.user = user_model
+            booking.date = date
+            booking.item = item
+            booking.firstname = first
+            booking.lastname = last
+            booking.phone = phone
+            booking.email = email
+            booking.message = message
+            booking.tickets = tickets
+            booking.save()
+            messages = 'Booking success'
+            return redirect(reverse('web.home'), {'messages': messages})
+            # Ahora, redireccionamos a la pagina
+            #user = authenticate(username=username, password=password)
+            #if user is not None:
+             #   if user.is_active:
+              #      login(request, user)
+               #     return redirect(reverse('app.welcome'), {'nickname': nickname})
+                #else:
+                    # Redireccionar informando que la cuenta esta inactiva
+                 #   pass
+                #message = 'Usuario incorrecto'
+    else:
+        # Si el mthod es GET, instanciamos un objeto RegistroUserForm vacio
+        form = Bookingform()
+    # Creamos el contexto
+    context = {'form': form}
+    context['item'] = Item.objects.all()
+    # Y mostramos los datos
+    return render(request, 'web/booking.html', context)

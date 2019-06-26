@@ -1,0 +1,35 @@
+
+{% extends 'web/_body.html' %}
+{% block title %}Bogotours{% endblock title %}
+{% block web_content %}
+
+  <script>
+  $( function() {
+    $( "#id_date" ).datepicker();
+    $( "#format" ).on( "change", function() {
+      $( "#id_date" ).datepicker( "option", "dateFormat", $( this ).val() );
+    });
+  } );
+  </script>
+
+<section class="contact">
+<form method="post" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+			<button type="submit">Update</button>
+            </form>
+</section>
+
+<style type="text/css">
+	.contact{padding: 30px;background: url(/static/img/header4.jpg)no-repeat center center;background-size: cover;text-align: center;}
+	.contact form{border-radius:5px;background: rgba(255,255,255,0.5);padding: 20px;width: 300px;margin: 0 auto;display: block;}
+	.contact form textarea{width: 100%;border-radius: 5px;margin: 5px;padding: 5px;}
+	.contact form input{width: 100%;margin: 5px;padding: 5px;}
+
+	@media screen and (max-width:833px){
+        .contact{padding: 10px;}
+        .contact form{width: 100%;padding: 5px;}
+    }
+</style>
+{% endblock web_content %}
+
