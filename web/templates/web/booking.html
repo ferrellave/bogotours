@@ -5,10 +5,10 @@
 
   <script>
   $( function() {
-    $( "#id_date" ).datepicker();
-    $( "#format" ).on( "change", function() {
-      $( "#id_date" ).datepicker( "option", "dateFormat", $( this ).val() );
+    $( "#id_date" ).datepicker({
+    	dateFormat: "dd/mm/yy"
     });
+   
   } );
   </script>
 
@@ -16,15 +16,17 @@
 <form method="post" action="" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-			<button type="submit">Update</button>
+			<button type="submit">Book This Tour</button>
             </form>
 </section>
 
 <style type="text/css">
 	.contact{padding: 30px;background: url(/static/img/header4.jpg)no-repeat center center;background-size: cover;text-align: center;}
-	.contact form{border-radius:5px;background: rgba(255,255,255,0.5);padding: 20px;width: 300px;margin: 0 auto;display: block;}
+	.contact form{border-radius:5px;background: rgba(255,255,255,0.9);padding: 20px;width: 600px;margin: 0 auto;display: block;}
 	.contact form textarea{width: 100%;border-radius: 5px;margin: 5px;padding: 5px;}
 	.contact form input{width: 100%;margin: 5px;padding: 5px;}
+	.contact form select{width: 100%;margin: 5px;padding: 5px;}
+	.contact form button{color: white;background: blue;padding: 10px;border-radius: 20px;font-size: 18px;border: none;}
 
 	@media screen and (max-width:833px){
         .contact{padding: 10px;}

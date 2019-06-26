@@ -14,32 +14,32 @@ class FormularioContacto(forms.Form):
 
 class Bookingform(forms.Form):
 
-	item = forms.ModelChoiceField(queryset=Item.objects.all(),label="Choose a Tour",required=True)
+	item = forms.ModelChoiceField(queryset=Item.objects.all(),label="Select a Tour",required=True)
 	date = forms.DateField(
-        label='Date', 
+        label='Date of Tour', 
         widget=forms.TextInput(attrs={'class':'form-control'})
         )
 	tickets = forms.CharField(
-        label='Tickets', 
-        widget=forms.TextInput(attrs={'class':'form-control'})
+        label='Number of Persons', 
+        widget=forms.NumberInput(attrs={'class':'form-control'})
         )
 	first = forms.CharField(
-        label='Firstname', 
+        label='Your First Name', 
         widget=forms.TextInput(attrs={'class':'form-control'})
         )
 	last = forms.CharField(
-        label='Lastame', 
+        label='Your Last Name', 
         widget=forms.TextInput(attrs={'class':'form-control'})
         )
 	phone = forms.CharField(
-        label='Phone', 
+        label='Your Phone Number', 
         widget=forms.TextInput(attrs={'class':'form-control'})
         )
 	email = forms.EmailField(
-        label='Email', 
+        label='Your Email', 
         widget=forms.EmailInput(attrs={'class':'form-control'})
         )
 	message = forms.CharField(
-        label='Message', 
+        label='Aditional Message', 
         widget=forms.Textarea(attrs={'class':'form-control'})
         )
