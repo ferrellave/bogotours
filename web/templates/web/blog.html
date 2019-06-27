@@ -2,4 +2,51 @@
 {% block title %}{% endblock title %}
 {% block web_content %}
 
+<section class="thisblog">
+	<header id="thisblog-{{blogs.id}}">   
+    </header>
+    <div class="thisblog-info">
+        <h2>{{blogs.title}}</h2>
+        <h1>{{blogs.description|safe}}</h1>
+        {%for photo in photo%}
+        {%if photo.blogs.title == blogs.title%}
+        <h4>{{photo.title}}</h4>
+        <p>{{photo.description|safe}}</p>
+        <img src="/media/{{photo.file}}">
+        </br></br>
+        {%endif%}
+        {%endfor%}
+    </div>
+</section>
+
+{% include 'web/modules/_blogs.html' %}
+
+<style type="text/css">
+    #thisblog-{{blogs.id}} {background: #333 url(/media/{{blogs.picture}})no-repeat center center;background-size:cover;background-attachment:fixed; width: 100%;height:60%;}
+	.thisblog-info{background:#fff;padding: 20px 80px;margin:0 auto;width: 70%;}
+	.thisblog-info p{display:block;text-align: left;line-height: 2;color: #333;padding: 20px 0px;}
+	.thisblog-info h1{text-align: left;color: #777;font-size: 18px;font-weight: normal;}
+	.thisblog-info h2{text-align: left;}
+	.thisblog-info h3{text-align: left;}
+	.thisblog-info h4{text-align: left;}
+    .thisblog-info h6{padding: 10px;}
+	.thisblog-info strong{text-align: left;}
+	.thisblog-info span{text-align: left;}
+    .thisblog-info table tr{display: inline-block;vertical-align: top;border: 1px solid #888;border-radius: 5px;margin: 1px;}
+    .thisblog-info table td strong{padding: 20px 10px;display: block;line-height: 2;}
+    .thisblog-info table tr{display: block;}
+	.thisblog-icons figure{display: inline-block;vertical-align: top;text-align: center;padding: 50px 10px;width: 24%;}
+	.thisblog-icons figure img{display: block;width: 60px;margin: 0 auto;}
+	.thisblog-icons figure p{text-align: center;}
+	.thisblog-info img{width: 100%;}
+    .thisblog header a{display: inline-block;position: absolute;bottom: 20px;background: black;padding: 20px;color: #fff;font-size: 18px;}
+    .thisblog header{position: relative;}
+
+    @media screen and (max-width:833px){
+        .thisblog-info{padding:5px;width: 100%;}
+        .thisblog header{height: 90%;background-size: cover;}
+    }
+
+</style>
+
 {% endblock web_content %}

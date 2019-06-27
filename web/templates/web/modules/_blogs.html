@@ -3,10 +3,12 @@
 <section class="homeblogs">
 {%for blog in blog %}
 	<article>
+		<a href="{%url 'web.blog' blog.slug%}">
 		<img src="/media/{{blog.picture}}">
+		</a>
 		<h4>{{blog.title}}</h4>
 		<p>{{blog.description}}</p>
-		<li><a href="#">Read More...</a></li>
+		<li><a href="{%url 'web.blog' blog.slug%}">Read More...</a></li>
 	</article>
 {%endfor%}
 </section>

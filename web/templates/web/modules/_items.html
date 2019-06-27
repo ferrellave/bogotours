@@ -24,7 +24,9 @@
         <div>
             {% for photo in photo %}
             {%if photo.item.title == item.title%}
+            <a href="{%url 'web.itemgallery' item.slug%}">
             <img src="/media/{{photo.file}}">
+            </a>
             {%endif%}
             {%endfor%}
         </div>
@@ -42,7 +44,6 @@
 box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.52);background:white;text-align:left;display: inline-block;vertical-align: top;width: 100%;margin: 3px 3px;border:1px solid rgba(0,0,0,0.1);border-radius: 5px;overflow: hidden;}
 .tours article img{width: 100%;height:auto;border-radius: 1px;display:inline-block;vertical-align: top;}
 .tours article figure{position:relative;width: 40%;height: 280px;overflow: hidden;display: inline-block;vertical-align: top;}
-.tours article a{background: black;color: white;padding: 5px;display: inline-block;margin-top: 10px;}
 .tours h4{text-align:left;padding: 20px 0;font-size: 20px;}
 .tours div{display: inline-block;width: 29%;padding-left: 20px;vertical-align: top;}
 .tours div img{display: inline-block;width: 49%;height: 100px;}

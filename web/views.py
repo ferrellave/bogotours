@@ -69,12 +69,27 @@ def item(request, slug):
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
-def blog(request):
+def itemgallery(request, slug):
+
+    template = 'web/item-gallery.html'
+    category = Category.objects.all().order_by('id')
+    item = Item.objects.get(slug = slug)
+    items = Item.objects.all().order_by('id')
+    section = Section.objects.all().order_by('id')
+    photo = Photo.objects.all().order_by('id')
+    blog = Blog.objects.all().order_by('-id')
+    tag = Tag.objects.all().order_by('-id')
+    return render_to_response(template,locals(),
+                                context_instance=RequestContext(request))
+
+
+def blog(request, slug):
 
     template = 'web/blog.html'
     category = Category.objects.all().order_by('id')
     item = Item.objects.all().order_by('id')
     items = Item.objects.all().order_by('id')
+    blogs = Blog.objects.get(slug = slug)
     section = Section.objects.all().order_by('id')
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')

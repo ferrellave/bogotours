@@ -3,7 +3,9 @@
 {% block web_content %}
 
 <section class="thistour">
-	<header id="thistour-{{item.id}}"></header>
+	<header id="thistour-{{item.id}}">
+     <a href="{%url 'web.itemgallery' item.slug%}">View More Pictures...</a>   
+    </header>
     <div class="thistour-info">
         <h2>{{item.title}}</h2>
         <h1>{{item.description|safe}}</h1>
@@ -79,6 +81,8 @@
 	.thistour-icons figure img{display: block;width: 60px;margin: 0 auto;}
 	.thistour-icons figure p{text-align: center;}
 	.thistour-info img{width: 100%;}
+    .thistour header a{display: inline-block;position: absolute;bottom: 20px;background: black;padding: 20px;color: #fff;font-size: 18px;}
+    .thistour header{position: relative;}
 
     @media screen and (max-width:833px){
         .thistour-info{padding:5px;width: 100%;}
