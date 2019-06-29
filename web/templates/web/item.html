@@ -13,7 +13,7 @@
             <figure><img src="/static/img/calendar.png"><p>Every Day</p></figure>
             <figure><img src="/static/img/time.png"><p>3 Hours</p></figure>
             <figure><img src="/static/img/clock.png"><p>10:00 am & 2:00 pm</p></figure>
-            <figure><img src="/static/img/info.png"><p>Free Tour</p></figure>
+            <figure><img src="/static/img/info.png"><p>{{item.category}}</p></figure>
         </div>
         {%for photo in photo%}
         {%if photo.item.title == item.title%}
