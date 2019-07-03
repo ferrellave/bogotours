@@ -1,22 +1,64 @@
 <section id="loader" class="loader">
 <div>
-<img src="/static/img/loading2.gif">
+<img id="lgo" class="lgo" src="/static/img/go.png">
 </div>
 </section>
 
 <style type="text/css">
-    #loader{text-align:center;background: #060606 url(/static/img/logo.png)no-repeat center center;background-size:100px;z-index: 20;position: fixed;overflow: hidden;width: 100%;height: 100%;padding-top:15%;top:0;left: 0;}
+    #loader{text-align:center;background: #060606;z-index: 20;position: fixed;overflow: hidden;width: 100%;height: 100%;padding-top:15%;top:0;left: 0;}
     .loader{display: block;}
     .loaders{display: none;}
-    #loader div{display:block;width: 60px;margin: 0 auto;padding-top: 15%;border-radius:50%;background: white;padding: 1px;}
-    #loader div img{width: 100%;}
+    #loader div{display:block;margin: 0 auto;padding-top: 15%;padding: 1px;}
+    .lgo{width: 100px;}
+    .lgo0{width: 120px;}
+    .lgo1{width: 140px;}
+    .lgo2{width: 160px;}
+    .lgo3{width: 180px;}
+    .lgo4{width: 200px;}
+    .lgo5{width: 250px;}
 </style>
 
 <script type="text/javascript">
+    lgo0();
+    lgo1();
+    lgo2();
+    lgo3();
+    lgo4();
+    lgo5();
     loader();
+    function lgo0(){
+        setTimeout(function(){ 
+            document.getElementById("lgo").className = "lgo0";
+         }, 2200);
+    }
+    function lgo1(){
+        setTimeout(function(){ 
+            document.getElementById("lgo").className = "lgo1";
+         }, 2350);
+    }
+    function lgo2(){
+        setTimeout(function(){ 
+            document.getElementById("lgo").className = "lgo2";
+         }, 2500);
+    }
+    function lgo3(){
+        setTimeout(function(){ 
+            document.getElementById("lgo").className = "lgo3";
+         }, 2650);
+    }
+    function lgo4(){
+        setTimeout(function(){ 
+            document.getElementById("lgo").className = "lgo4";
+         }, 2800);
+    }
+    function lgo5(){
+        setTimeout(function(){ 
+            document.getElementById("lgo").className = "lgo5";
+         }, 2950);
+    }
     function loader(){
         setTimeout(function(){ 
             document.getElementById("loader").className = "loaders";
-         }, 2000);
+         }, 3000);
     }
 </script>
