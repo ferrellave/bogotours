@@ -10,9 +10,9 @@
         <h2>{{item.title}}</h2>
         <h1>{{item.description|safe}}</h1>
         <div class="thistour-icons">
-            <figure><img src="/static/img/calendar.png"><p>Every Day</p></figure>
-            <figure><img src="/static/img/time.png"><p>3 Hours</p></figure>
-            <figure><img src="/static/img/clock.png"><p>10:00 am & 2:00 pm</p></figure>
+            <figure><img src="/static/img/calendar.png"><p>{{item.day}}</p></figure>
+            <figure><img src="/static/img/time.png"><p>{{item.time}}</p></figure>
+            <figure><img src="/static/img/clock.png"><p>{{item.hours}}</p></figure>
             <figure><img src="/static/img/info.png"><p>{{item.category}}</p></figure>
         </div>
         {%for photo in photo%}
@@ -24,40 +24,33 @@
         {%endif%}
         {%endfor%}
         <strong>Recommendations:</strong>
-        <span>* Bring confortable shoes. The activity requires a 2-hours walk</span>
-        <span>* Keep hydrating constantly and use sunscreen</span>
-        <span>* Remember all safety indications from the tour guide before the tour in order to avoid problems</span>
-        <span>* Do not walk away from the group</span>
+        <span>{{item.recommendations|safe}}</span>
         </br></br>
         <strong>Important Information:</strong>
-        <span>The meeting spot is right in front of Museo Botero. You’ll always one of our guides holding a Yellow Umbrella at the corresponding times.</span>
+        <span>{{item.important|safe}}</span>
         </br></br>
         <img src="/media/{{item.picture}}">
         <h6>{{item.title}}</h6>
         <table>
             <tr>
                 <td><strong>Departure:</strong></td>
-                <td><p>* Corner Carrera 2 & Calle (Chorro de Quevedo Square)</p></td>
+                <td><p>{{item.departure|safe}}</p></td>
             </tr>
             <tr>
                 <td><strong>Departure Time:</strong></td>
-                <td><p>* 10:00 am & 2:00 pm</p></td>
+                <td><p>{{item.hours}}</p></td>
             </tr>
             <tr>
                 <td><strong>Return Time:</strong></td>
-                <td><p>* 1am and 5pm</p></td>
+                <td><p>{{item.returntime}}</p></td>
             </tr>
             <tr>
                 <td><strong>Included:</strong></td>
-                <td><p>* Gran Colombia Tours Guide</p>
-                    <p>* Visit to several graffiti in downtown Bogotá</p>
-                </td>
-                <td><p>* Socio-political context of graffiti production</p></td>
+                <td><p>{{item.included|safe}}</p></td>
             </tr>
             <tr>
                 <td><strong>Not Included:</strong></td>
-                <td><p>* Extra purchases</p></td>
-                <td><p>* Pick-up and dropp-off</p></td>
+                <td><p>{{item.notincluded|safe}}</p></td>
             </tr>
         </table>
     </div>

@@ -14,6 +14,7 @@
 
 <section class="contact">
 <form method="post" action="" enctype="multipart/form-data">
+  <h3>Book your favorite Tour</h3>
                 {% csrf_token %}
                 {{ form.as_p }}
 			<button type="submit">Book This Tour</button>
@@ -21,7 +22,7 @@
 </section>
 
 <style type="text/css">
-	.contact{padding: 30px;background: url(/static/img/header4.jpg)no-repeat center center;background-size: cover;text-align: center;}
+	.contact{padding: 30px;background: #fff}
 	.contact form{border-radius:5px;background: rgba(255,255,255,0.9);padding: 20px;width: 600px;margin: 0 auto;display: block;}
 	.contact form textarea{width: 100%;border-radius: 5px;margin: 5px;padding: 5px;}
 	.contact form input{width: 100%;margin: 5px;padding: 5px;}

@@ -3,7 +3,7 @@
 {% block web_content %}
 <section class="contact">
 	 <form id="formulario" method="post" action="" enctype="multipart/form-data">
-            <h2>Contact</h2>
+            <h2>Contact Us</h2>
                     {% csrf_token %}
                     <div class="form-group">
                         <input required="True" placeholder="Email" class="form-control" id="id_correo" name="correo" type="email">
@@ -12,17 +12,19 @@
                     <div class="form-group">
                         <textarea required="True" placeholder="Message" class="form-control" cols="40" id="id_mensaje" name="mensaje" rows="10"></textarea>
                     </div>
-                    <button type="submit" class="look">Send</button> 
+                    <button type="submit" class="look">Send Message</button> 
                 </form>
 </section>
 
 <style type="text/css">
-	.contact{padding: 30px;background: url(/static/img/header4.jpg)no-repeat center center;background-size: cover;text-align: center;}
-	.contact form{border-radius:5px;background: rgba(255,255,255,0.5);padding: 20px;width: 300px;margin: 0 auto;display: block;}
-	.contact form textarea{width: 100%;border-radius: 5px;margin: 5px;padding: 5px;}
-	.contact form input{width: 100%;margin: 5px;padding: 5px;}
+    .contact{padding: 30px;background: url(/static/img/header30.jpg)no-repeat center center;background-size: cover;text-align: center;background-attachment: fixed;}
+    .contact form{border-radius:5px;background: rgba(255,255,255,0.9);padding: 20px;width: 600px;margin: 0 auto;display: block;}
+    .contact form textarea{width: 100%;border-radius: 5px;margin: 5px;padding: 5px;}
+    .contact form input{width: 100%;margin: 5px;padding: 5px;}
+    .contact form select{width: 100%;margin: 5px;padding: 5px;}
+    .contact form button{color: white;background: blue;padding: 10px;border-radius: 20px;font-size: 18px;border: none;}
 
-	@media screen and (max-width:833px){
+    @media screen and (max-width:833px){
         .contact{padding: 10px;}
         .contact form{width: 100%;padding: 5px;}
     }

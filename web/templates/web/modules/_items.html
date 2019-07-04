@@ -9,15 +9,15 @@
         <a href="{%url 'web.item' item.slug%}">
         <img src="/media/{{item.picture}}">
         </a>
-        <span>See More...</span>
+        <span>{{item.price}}</span>
         </figure>
         <div>
         <h4>{{item.title}}</h4> 
         <p>{{item.description|safe}}</p>
          <table class="thistour-icons">
-            <td><img src="/static/img/calendar.png"><p>Every Day</p></td>
-            <td><img src="/static/img/time.png"><p>3 Hours</p></td>
-            <td><img src="/static/img/clock.png"><p>10:00 am & 2:00 pm</p></td>
+            <td><img src="/static/img/calendar.png"><p>{{item.day}}</p></td>
+            <td><img src="/static/img/time.png"><p>{{item.time}}</p></td>
+            <td><img src="/static/img/clock.png"><p>{{item.hours}}</p></td>
             <td><img src="/static/img/info.png"><p>{{item.section}}</p></td>
         </table>
         </div>

@@ -1,17 +1,20 @@
 <div class="phone">
-    <p>Follow us:</p>
+    <p>Follow us @BogotoursTravel:</p>
     <a href="https://www.facebook.com/bogotourstravel"><img src="/static/img/face.png"></a>
     <a href="https://api.whatsapp.com/send?phone=+573107689638&text=Text From www.bogotours.co"><img src="/static/img/whatsapp.png"></a>
     <a href="https://www.instagram.com/bogotourstravel"><img src="/static/img/instagram.png"></a>
     <a href="mailto:info@bogotours.co"><img src="/static/img/gmail.png"></a>
     <a href="https://www.youtube.com/channel/UClHGTwgioYz5tcSNzYLVCpA"><img src="/static/img/youtube.png"></a>
-    <span><img src="/static/img/world.png">Email: info@bogotours.co Tel: (+57) 310 7689638.
+    <span><img src="/static/img/phone.png">Tel: (+57) 310 7689638.
 
         <!--<a href=""><img src="/static/img/colombia.png">Español</a>  <a href=""><img src="/static/img/usa.png">English</a> </span>  -->
 </div>
 
+<div class="backing" id="backing">
 <nav id="menu-left"><a id="icon" href="/"><img src="/static/img/logo.png"></a>
 </nav>
+</div>
+
 <nav id="menu-lefts" class="menu-left">
     <ul>
     <li><a href="{% url 'web.home' %}">Home</a></li>
@@ -40,10 +43,16 @@
 </nav>
 
 <style type="text/css">
+.backing{background: #eee url(/static/img/header1.jpg)no-repeat top -90px center!important;
+    background-attachment: fixed!important;
+    background-size: 1000%!important;}
+    .backing2{background: #eee url(/static/img/header1.jpg)no-repeat top -100px center!important;
+    background-attachment: fixed!important;
+    background-size: 100%!important;}
         .menu-left{-webkit-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);
 -moz-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);
 box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 100px; width: 100%;height: auto;background: #3365f6;top: 0;left: 0;position: relative;}
-    #menu-left{background: #000;padding: 20px;text-align: left;padding-left: 100px;}
+    #menu-left{background: rgba(0,0,0,0.5);padding: 20px;text-align: left;padding-left: 100px;}
     #menu-lefts ul{padding-right: 100px;padding-top: 10px;padding-bottom: 10px;}
     #menu-lefts ul li a img{width: 20px;margin-left: 5px;display: inline-block;vertical-align: middle;}
     #menu-lefts ul li{display:inline-block;text-align: center;padding: 10px 10px;opacity: 0.6;}
@@ -51,12 +60,13 @@ box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 100px; width: 100%;he
     #menu-lefts ul li a{font-family:'Montserrat',sans-serif;display:inline-block;vertical-align:middle;font-size: 16px;display: block;color: white;width: 100%;font-weight: bold;}
     #icon{display:inline-block;}
     #icon img{height: 90px;}
-    #icon img:hover{height: 100px;}
+    #icon img:hover{background: #fff;}
 
     .phone{background:rgba(0,0,0,0.9);padding: 5px 100px; font-size: 16px;text-align: left;padding-right: 20px;position: relative;}
-    .phone img{display: inline-block;width: 40px;vertical-align: middle;padding: 5px;margin-left: 1px;}
+    .phone img{display: inline-block;width: 30px;vertical-align: middle;padding: 2px;margin: 3px;background: rgba(255,255,255,0.6);border-radius: 50%;}
+    .phone img:hover{background: #fff;}
     .phone p{font-family:'Montserrat',sans-serif;display: inline-block;color: white;vertical-align: middle;}
-    .phone span{position: absolute;right: 100px;color: #fff;font-family:'Montserrat',sans-serif;}
+    .phone span{position: absolute;right: 100px;color: #fff;font-family:'Montserrat',sans-serif;font-weight: bold;}
 
     #menutours{background: #fff;overflow: hidden;}
     .menutours-open{height: auto;padding: 20px 80px;}
@@ -88,5 +98,12 @@ box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 100px; width: 100%;he
        } else{
         menutours.className='menutours-close'
        }
+    }
+
+        move();
+    function move(){
+        setTimeout(function(){ 
+            document.getElementById("backing").className = "backing2";
+         },3000);
     }
 </script>
