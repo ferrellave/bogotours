@@ -23,33 +23,33 @@
         </br></br>
         {%endif%}
         {%endfor%}
-        <strong>Recommendations:</strong>
+        <strong>Recomendaciones:</strong>
         <span>{{item.recommendations|safe}}</span>
         </br></br>
-        <strong>Important Information:</strong>
+        <strong>Información Importante:</strong>
         <span>{{item.important|safe}}</span>
         </br></br>
         <img src="/media/{{item.picture}}">
         <h6>{{item.title}}</h6>
         <table>
             <tr>
-                <td><strong>Departure:</strong></td>
+                <td><strong>Lugar de Salida:</strong></td>
                 <td><p>{{item.departure|safe}}</p></td>
             </tr>
             <tr>
-                <td><strong>Departure Time:</strong></td>
+                <td><strong>Hora de Salida:</strong></td>
                 <td><p>{{item.hours}}</p></td>
             </tr>
             <tr>
-                <td><strong>Return Time:</strong></td>
+                <td><strong>Hora de Regreso:</strong></td>
                 <td><p>{{item.returntime}}</p></td>
             </tr>
             <tr>
-                <td><strong>Included:</strong></td>
+                <td><strong>¿Qué incluye?</strong></td>
                 <td><p>{{item.included|safe}}</p></td>
             </tr>
             <tr>
-                <td><strong>Not Included:</strong></td>
+                <td><strong>¿Qué no incluye?:</strong></td>
                 <td><p>{{item.notincluded|safe}}</p></td>
             </tr>
         </table>
