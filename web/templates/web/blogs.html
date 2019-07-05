@@ -2,9 +2,9 @@
 {% block title %}{% endblock title %}
 {% block web_content %}
 
-	<h2>Enjoy New Experiences In Bogotá</h2>
+	<h2>Las mejores experiencias</h2>
 	<br><br>
-<h3>All you should know about Bogotá in our Blog</h3>
+<h3>Encuentra información sobre la ciudad de Bogotá en nuestro blog</h3>
 <section class="iblogs">
 {%for blog in blog %}
 	<article>
@@ -13,7 +13,7 @@
 		</a>
 		<h4>{{blog.title}}</h4>
 		<p>{{blog.description}}</p>
-		<li><a href="{%url 'web.blog' blog.slug%}">Read More...</a></li>
+		<li><a href="{%url 'web.blog' blog.slug%}">Continuar leyendo...</a></li>
 	</article>
 {%endfor%}
 </section>

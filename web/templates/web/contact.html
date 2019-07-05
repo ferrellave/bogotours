@@ -3,7 +3,7 @@
 {% block web_content %}
 <section class="contact">
 	 <form id="formulario" method="post" action="" enctype="multipart/form-data">
-            <h2>Contact Us</h2>
+            <h2>Envianos un Mensaje</h2>
                     {% csrf_token %}
                     <div class="form-group">
                         <input required="True" placeholder="Email" class="form-control" id="id_correo" name="correo" type="email">
@@ -12,7 +12,7 @@
                     <div class="form-group">
                         <textarea required="True" placeholder="Message" class="form-control" cols="40" id="id_mensaje" name="mensaje" rows="10"></textarea>
                     </div>
-                    <button type="submit" class="look">Send Message</button> 
+                    <button type="submit" class="look">Enviar mensaje</button> 
                 </form>
 </section>
 
