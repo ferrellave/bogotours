@@ -8,6 +8,24 @@ from django.utils.timezone import now
 import os
 import datetime
 
+class UserProfile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, blank=True)
+    nickname = models.CharField(blank=True, max_length=200, verbose_name="nickname")
+    password2 = models.CharField(blank=True, max_length=200, verbose_name="Password")
+    avatar = models.ImageField(upload_to='userprofiles/avatar', blank=True, null=True)
+    create_at = models.DateTimeField(default=now, editable=False)
+    update_at = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
+    slug = models.SlugField(editable=True)
+    class Meta:
+        verbose_name = 'Userprofile'
+        verbose_name_plural = 'Userprofiles'
+    def __str__(self):
+        return self.nickname
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.nickname)
+        super(UserProfile, self).save(*args, **kwargs)
+        
 class Language(models.Model):
     title = models.CharField(max_length=300, verbose_name="Title")
     picture = models.ImageField(upload_to='Language', blank=True, null=True)

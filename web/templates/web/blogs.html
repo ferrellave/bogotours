@@ -12,7 +12,7 @@
 		<img src="/media/{{blog.picture}}">
 		</a>
 		<h4>{{blog.title}}</h4>
-		<p>{{blog.description}}</p>
+		<p>{{blog.description|safe}}</p>
 		<li><a href="{%url 'web.blog' blog.slug%}">Continuar leyendo...</a></li>
 	</article>
 {%endfor%}
