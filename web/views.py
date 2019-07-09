@@ -2,10 +2,14 @@ from django.shortcuts import render, render_to_response, get_object_or_404, redi
 from django.views import generic
 from django.conf import settings
 from django.core.urlresolvers import reverse_lazy
-from .forms import FormularioContacto, Bookingform
+from .forms import FormularioContacto, Bookingform, signup_form
 from .models import *
 
 from django.contrib import messages 
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.hashers import make_password
+
 from django.core.mail import send_mail, EmailMessage
 from django.template import RequestContext
 from django.http import HttpResponseBadRequest, HttpResponse, HttpRequest, HttpResponseRedirect
@@ -16,6 +20,7 @@ from django.core.context_processors import csrf
 from django import forms 
 from django.middleware.csrf import CsrfViewMiddleware, get_token
 from django.utils.decorators import available_attrs, decorator_from_middleware
+from django.utils import timezone
 
 
 def home(request):
@@ -135,6 +140,9 @@ def contact(request):
 
 
 def booking(request):
+    if not request.user.is_authenticated():
+        return redirect(reverse('web.signup'))
+
     def get_context_data(self, **kwargs):
         context = super(booking, self).get_context_data(**kwargs)
         return context
@@ -181,19 +189,19 @@ def signup_view(request):
             username = cleaned_data.get('username')
             password = cleaned_data.get('password')
             password2 = cleaned_data.get('password2')
-            nickname = cleaned_data.get('nickname')
+            firstname = cleaned_data.get('firstname')
             user_model = User.objects.create_user(username=username, password=password)
             user_model.save()
             user_profile = UserProfile()
             user_profile.user = user_model
-            user_profile.nickname = nickname
+            user_profile.firstname = firstname
             user_profile.password2 = password2
             user_profile.save()
             user = authenticate(username=username, password=password)
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return redirect(reverse('web.home'), {'nickname': nickname})
+                    return redirect(reverse('web.booking'), {'firstname': firstname})
                 else:
                     pass
                 message = 'Usuario incorrecto'
@@ -206,10 +214,8 @@ def signup_view(request):
 
 def login_view(request):
     if request.user.is_authenticated():
-        return redirect(reverse('web.home'))
+        return redirect(reverse('web.booking'))
     message = ''
-    userprofile = UserProfile.objects.all().order_by('-create_at')
-    track = Track.objects.all().order_by('-create_at')
     now = timezone.now()
     template = 'web/login.html'
     if request.method == 'POST':
@@ -219,16 +225,14 @@ def login_view(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return redirect(reverse('web.login'))
+                return redirect(reverse('web.booking'))
             else:
                 # Redireccionar informando que la cuenta esta inactiva
                 pass
-        message = 'Invalid Email or Password. Try again'
+        message = 'Mail o password invalido'
     return render_to_response(template,locals(),context_instance=RequestContext(request))
 
-
-@login_required
 def logout_view(request):
     logout(request)
     messages.success(request, 'Ingresa para continuar')
-    return redirect(reverse('app.login'))
+    return redirect(reverse('web.login'))

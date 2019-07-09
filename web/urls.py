@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^tours/$', 'web.views.items', name='web.items'),
     url(r'^contacto/$', 'web.views.contact', name='web.contact'),
     url(r'^reservas/$', 'web.views.booking', name='web.booking'),
-    url(r'^registro/$', 'web.views.signup', name='web.signup'),
-    url(r'^entrar/$', 'web.views.login', name='web.login'),
-    url(r'^salir/$', 'web.views.logout', name='web.logout'),
+    url(r'^registro/$', 'web.views.signup_view', name='web.signup'),
+    url(r'^entrar/$', 'web.views.login_view', name='web.login'),
+    url(r'^salir/$', 'web.views.logout_view', name='web.logout'),
 ]

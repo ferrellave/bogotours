@@ -1,1 +1,30 @@
-signup.html
+
+{% extends 'web/_body.html' %}
+{% block title %}Bogotours{% endblock title %}
+{% block web_content %}
+
+<section class="contact">
+<form method="post" action="" enctype="multipart/form-data">
+  <h3>Regístrate para agendar un Tour</h3>
+                {% csrf_token %}
+                {{ form.as_p }}
+			<button type="submit">Registrarse</button>
+			<a href="{% url 'web.login' %}">¿Ya estás registrado? Inicia Sesión</a>
+            </form>
+</section>
+
+<style type="text/css">
+	.contact{padding: 30px;background: #fff}
+	.contact form{border-radius:5px;background: rgba(255,255,255,0.9);padding: 20px;width: 600px;margin: 0 auto;display: block;}
+	.contact form textarea{width: 100%;border-radius: 5px;margin: 5px;padding: 5px;}
+	.contact form input{width: 100%;margin: 5px;padding: 5px;}
+	.contact form select{width: 100%;margin: 5px;padding: 5px;}
+	.contact form button{color: white;background: blue;padding: 10px;border-radius: 20px;font-size: 18px;border: none;}
+
+	@media screen and (max-width:833px){
+        .contact{padding: 10px;}
+        .contact form{width: 100%;padding: 5px;}
+    }
+</style>
+{% endblock web_content %}
+
