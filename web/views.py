@@ -136,16 +136,11 @@ def contact(request):
 
 def booking(request):
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
         context = super(booking, self).get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
         return context
     if request.method == 'POST':
-        # Si el method es post, obtenemos los datos del formulario
         form = Bookingform(request.POST)
-        # Comprobamos si el formulario es valido
         if form.is_valid():
-            # En caso de ser valido, obtenemos los datos del formulario.
             cleaned_data = form.cleaned_data
             item = cleaned_data.get('item')
             date = cleaned_data.get('date')
@@ -155,14 +150,7 @@ def booking(request):
             tickets = cleaned_data.get('tickets')
             email = cleaned_data.get('email')
             message = cleaned_data.get('message')
-            # E instanciamos un objeto User, con el username y password
-        #    user_model = User.objects.create_user(username=username, password=password)
-            # Y guardamos el objeto, esto guardara los datos en la db.
-        #    user_model.save()
-            # Ahora, creamos un objeto UserProfile
             booking = Booking()
-            # Al campo user le asignamos el objeto user_model
-           #track user_profile.user = user_model
             booking.date = date
             booking.item = item
             booking.firstname = first
@@ -174,21 +162,73 @@ def booking(request):
             booking.save()
             messages = 'Booking success'
             return redirect(reverse('web.home'), {'messages': messages})
-            # Ahora, redireccionamos a la pagina
-            #user = authenticate(username=username, password=password)
-            #if user is not None:
-             #   if user.is_active:
-              #      login(request, user)
-               #     return redirect(reverse('app.welcome'), {'nickname': nickname})
-                #else:
-                    # Redireccionar informando que la cuenta esta inactiva
-                 #   pass
-                #message = 'Usuario incorrecto'
     else:
-        # Si el mthod es GET, instanciamos un objeto RegistroUserForm vacio
         form = Bookingform()
-    # Creamos el contexto
     context = {'form': form}
     context['item'] = Item.objects.all()
-    # Y mostramos los datos
     return render(request, 'web/booking.html', context)
+
+def signup_view(request):
+    if request.user.is_authenticated():
+        return redirect(reverse('web.login'))
+    def get_context_data(self, **kwargs):
+        context = super(signup_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = signup_form(request.POST, request.FILES)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            username = cleaned_data.get('username')
+            password = cleaned_data.get('password')
+            password2 = cleaned_data.get('password2')
+            nickname = cleaned_data.get('nickname')
+            user_model = User.objects.create_user(username=username, password=password)
+            user_model.save()
+            user_profile = UserProfile()
+            user_profile.user = user_model
+            user_profile.nickname = nickname
+            user_profile.password2 = password2
+            user_profile.save()
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return redirect(reverse('web.home'), {'nickname': nickname})
+                else:
+                    pass
+                message = 'Usuario incorrecto'
+                return render(request, 'web/signup.html', {'message': message})
+    else:
+        form = signup_form()
+    context = {'form': form}
+    context['userprofile'] = UserProfile.objects.all()
+    return render(request, 'web/signup.html', context)
+
+def login_view(request):
+    if request.user.is_authenticated():
+        return redirect(reverse('web.home'))
+    message = ''
+    userprofile = UserProfile.objects.all().order_by('-create_at')
+    track = Track.objects.all().order_by('-create_at')
+    now = timezone.now()
+    template = 'web/login.html'
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect(reverse('web.login'))
+            else:
+                # Redireccionar informando que la cuenta esta inactiva
+                pass
+        message = 'Invalid Email or Password. Try again'
+    return render_to_response(template,locals(),context_instance=RequestContext(request))
+
+
+@login_required
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'Ingresa para continuar')
+    return redirect(reverse('app.login'))

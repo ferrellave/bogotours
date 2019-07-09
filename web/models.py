@@ -10,8 +10,10 @@ import datetime
 
 class UserProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, blank=True)
-    nickname = models.CharField(blank=True, max_length=200, verbose_name="nickname")
     password2 = models.CharField(blank=True, max_length=200, verbose_name="Password")
+    firstname = models.CharField(max_length=300, verbose_name="First Name")
+    lastname = models.CharField(max_length=300, verbose_name="Last Name")
+    phone = models.CharField(max_length=300, verbose_name="Phone")
     avatar = models.ImageField(upload_to='userprofiles/avatar', blank=True, null=True)
     create_at = models.DateTimeField(default=now, editable=False)
     update_at = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
@@ -108,6 +110,7 @@ class Item(models.Model):
     language = models.ForeignKey(Language, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Language")
     section = models.ForeignKey(Section, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Section")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Category")
+    likes = models.IntegerField(blank=True, default=0, verbose_name="Likes")
     created = models.DateTimeField(default=now, editable=False)
     updated = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
     slug = models.SlugField(editable=False)
