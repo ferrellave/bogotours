@@ -33,7 +33,7 @@
 .swiper-wrapper {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 100%;
   z-index: 1;
   display: -webkit-box;
   display: -moz-box;
@@ -190,8 +190,8 @@ background-image: url("/static/img/right.png")!important;
 }
 /* Bullets */
 .swiper-pagination-bullet {
-  width: 30px;
-  height: 30px;
+  width: 10px;
+  height: 10px;
   display: inline-block;
   border-radius: 5px;
   background: #3365f6;
