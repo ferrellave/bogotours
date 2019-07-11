@@ -2,7 +2,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'v5-1n$ll5&@%zq2g+)(&l%mw#ci%&)m9as0$s95w3wfq03enoj'
 DEBUG = True
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['www.bogotours.co','bogotours.co']
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
