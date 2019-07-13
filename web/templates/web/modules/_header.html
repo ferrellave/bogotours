@@ -1,34 +1,35 @@
 
-<section class="portada">
+<section class="portada" id="portada">
 <div class="swiper-container">
 <div class="swiper-wrapper">
 
     <div class="swiper-slide">
     <div class="banner" id="banner1">
     <img class="overlogo" src="/static/img/go.png">
-    <h3>Descubre los mejores Tours en Bogotá</h3>
-    <a class="topgo" href="{%url 'web.booking'%}">Reserva un Tour</a>
+    <h3>LA CANDELARIA <br>CENTRO HISTORICO
+        <span>Muchas historias</span>
+    </h3>
     </div>
     </div>  
     <div class="swiper-slide">
         <div class="banner" id="banner2">
-            <img class="overlogo" src="/static/img/go.png">
-    <h3>Encuentra lugares maravillosos con nosotros</h3>
-    <a class="topgo" href="{%url 'web.booking'%}">Reserva un Tour</a>
+    <h3>Encuentra lugares maravillosos con nosotros
+        <span>Muchas historias</span>
+    </h3>
     </div>  
      </div>	
     <div class="swiper-slide">
         <div class="banner" id="banner3">
-            <img class="overlogo" src="/static/img/go.png">
-    <h3>Adentrate en el corazón de la ciudad</h3>
-    <a class="topgo" href="{%url 'web.booking'%}">Reserva un Tour</a>
+    <h3>Adentrate en el corazón de la ciudad
+        <span>Muchas historias</span>
+    </h3>
     </div> 
      </div>
     <div class="swiper-slide">
         <div class="banner" id="banner4">
-            <img class="overlogo" src="/static/img/go.png">
-    <h3>Descubre Bogotá</h3>
-    <a class="topgo" href="{%url 'web.booking'%}">Reserva un Tour</a>
+    <h3>Descubre Bogotá
+        <span>Muchas historias</span>
+    </h3>
     </div>  
      </div>
 
@@ -50,7 +51,8 @@
 <style type="text/css">
     
     .banner{position: relative;width: 100%;height: 100%;overflow: hidden;padding: 200px;}
-    .banner h3{width:100%;text-align:left;text-transform:uppercase;position: relative;padding-top: 100px;background:rgba(0,0,0,0);font-size: 60px;color: white;}
+    .banner h3{display:block;text-align:right;text-transform:uppercase;position: absolute;bottom: 50px;right:50px;width:60%;background:rgba(0,0,0,0);font-size: 50px;color: white;font-family: 'Montserrat'}
+    .banner h3 span{color: yellow;font-size: 30px;text-transform: lowercase;display: block;}
     .banner a{display:inline-block;background: white;padding: 20px 30px;font-size: 30px;color: #3365f6;border-radius: 60px;font-weight: normal;}
     .banner img{width: 100%;height: auto;}
     .overlogo{opacity:0.4   ;position: absolute; top:10px;right: 20px;width: 130px!important;height: auto;}

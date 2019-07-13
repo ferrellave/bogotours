@@ -1,20 +1,34 @@
-<div class="phone">
-
-    <a href="https://www.facebook.com/bogotourstravel"><img src="/static/img/icons/facebook.png"></a>
-    <a href="https://api.whatsapp.com/send?phone=+573107689638&text=Contacto desde www.bogotours.co"><img src="/static/img/icons/whatsapp.png"></a>
-    <a href="https://www.instagram.com/bogotourstravel"><img src="/static/img/icons/instagram.png"></a>
-    <a href="mailto:info@bogotours.co"><img src="/static/img/icons/gmail.png"></a>
-    <a href="https://www.youtube.com/channel/UClHGTwgioYz5tcSNzYLVCpA"><img src="/static/img/icons/youtube.png"></a>
-    <span><img src="/static/img/phone.png">(+57) 3107689638 / 1-2433486.  
-
-        <a class="blue" href="#" onclick="doGTranslate('en|es');return false;" title="Spanish" ><img src="/static/img/colombia.png">Español</a>  <a class="blue" href="#" onclick="doGTranslate('es|en');return false;" title="English" ><img src="/static/img/usa.png">English</a> </span>
-</div>
-
 <div class="backing" id="backing">
-<nav id="menu-left"><a id="icon" class="icon" href="/"><img src="/static/img/logo.png"></a>
-  <br><br>
-  <div class="fb-share-button" data-href="http://www.bogotours.co" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.bogotours.co%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
-  <br><br>
+<nav id="menu-left">
+    <table>
+            <td>
+                <div class="phone">
+                    <a href="https://www.facebook.com/bogotourstravel"><img src="/static/img/social/facebook.png"></a>
+                    <a href="https://api.whatsapp.com/send?phone=+573107689638&text=Contacto desde www.bogotours.co"><img src="/static/img/social/whatsapp.png"></a>
+                    <a href="https://www.instagram.com/bogotourstravel"><img src="/static/img/social/instagram.png"></a>
+                    <a href="mailto:info@bogotours.co"><img src="/static/img/social/gmail.png"></a>
+                    <a href="https://www.youtube.com/channel/UClHGTwgioYz5tcSNzYLVCpA"><img src="/static/img/social/youtube.png"></a>
+                    <br><br>
+                    <a class="menulogo" href="#portada"><img src="/static/img/menu.png"></a>
+
+                </div>
+            </td>
+            <td>
+        <a id="icon" class="icon" href="/"><img src="/static/img/logo-bogotours.png"></a>
+            </td>
+            <td>
+                <div class="phone">
+                    <span>
+                    <a class="blue" href="#" onclick="doGTranslate('en|es');return false;" title="Spanish" ><img src="/static/img/colombia.png">Español</a>  <a class="blue" href="#" onclick="doGTranslate('es|en');return false;" title="English" ><img src="/static/img/usa.png">English</a>
+                    <br><br>
+                    Tel: (+57) 3107689638 / 1-2433486.  
+                    <br>
+                    info@bogotours.co
+                     </span>
+                </div>
+            </td>
+    </table>
+</nav>
 
 <div class="none">
 
@@ -52,10 +66,12 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 <nav id="menu-lefts" class="menu-left">
     <ul>
     <li><a href="{% url 'web.home' %}">Inicio</a></li>
-    <li><a href="#" onclick="menutours()">Tours en Bogotá<img src="/static/img/close.png"></a></li>
+    <li><a href="#" onclick="menutours()">Top Bogotour<img src="/static/img/close.png"></a></li>
+    <li><a href="{% url 'web.blogs' %}">Naturaleza</a></li>
+    <li><a href="{% url 'web.blogs' %}">Experiencias</a></li>
+    <li><a href="{% url 'web.blogs' %}">Tours Fuera</a></li>
+    <li><a href="{% url 'web.blogs' %}">Viajeros Transfer</a></li>
     <li><a href="{% url 'web.blogs' %}">Blog</a></li>
-<!--    <li><a href="{% url 'web.us' %}">About us</a></li> -->
-    <li><a href="{% url 'web.booking' %}">Reservas</a></li>
     <li><a href="{% url 'web.contact' %}">Contáctenos</a></li>
     </ul>
 </nav>
@@ -77,31 +93,34 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 </nav>
 
 <style type="text/css">
-.backing{background: #eee url(/static/img/header40.jpg)no-repeat top -90px center!important;
-    background-attachment: fixed!important;
-    background-size: 1000%!important;}
-    .backing2{background: #eee url(/static/img/header40.jpg)no-repeat top -100px center!important;
-    background-attachment: fixed!important;
-    background-size: 100%!important;}
+.backing{background: #fff;}
         .menu-left{-webkit-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);
 -moz-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);
-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 100px; width: 100%;height: auto;background: #000;top: 0;left: 0;position: relative;}
-    #menu-left{background: rgba(0,0,0,0.5);padding: 10px;text-align: center;}
+box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 100px; width: 100%;height: auto;background: #353795;top: 0;left: 0;position: relative;}
+    #menu-left table{text-align: center; width: 100%;padding: 10px;}
+    #menu-left table td{display: inline-block;width: 33%;text-align: center;vertical-align: top;}
+
+    .menu-left-scroll{-webkit-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);
+-moz-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);
+box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 120px; width: 100%;height: auto;background: #353795 url(/static/img/logo-bogotours.png)no-repeat left 10px center;background-size:90px;top: 0;left: 0;position: fixed!important;top: 0;z-index: 10;}
+
     #menu-lefts ul{padding-top: 5px;padding-bottom: 5px;}
-    #menu-lefts ul li a img{width: 20px;margin-left: 5px;display: inline-block;vertical-align: middle;}
-    #menu-lefts ul li{display:inline-block;text-align: center;opacity: 0.6;}
+    #menu-lefts ul li a img{width: 12px;margin-left: 5px;display: inline-block;vertical-align: middle;}
+    #menu-lefts ul li{display:inline-block;text-align: center;opacity: 0.6;margin: 0 6px;}
     #menu-lefts ul li:hover{opacity: 1;}
-    #menu-lefts ul li a{font-family:'Montserrat',sans-serif;display:inline-block;vertical-align:middle;font-size: 16px;display: block;color: white;width: 100%;font-weight: bold;padding: 10px 10px;border-radius: 30px;background: rgba(255,255,255,0.1);}
+    #menu-lefts ul li a{font-family:sans-serif;display:inline-block;vertical-align:middle;font-size: 12px;display: block;color: yellow;width: 100%;font-weight: bold;padding: 5px 10px;border:2px solid white;text-transform: uppercase;}
     #icon{display:inline-block;}
     .icon img{height: 50px;}
     .icon2 img{height: 90px;}
-    .blue{font-size: 12px;color: white;}
+    .blue{font-size: 12px;color: #353795;}
+    .menulogo{background: #353795;display: inline-block;padding: 2px;}
+    .menulogo img{border-radius: 2px!important;background: #353795!important;width: 30px;}
 
-    .phone{background:rgba(0,0,0,0.9);padding: 5px 100px; font-size: 16px;text-align: left;padding-right: 20px;position: relative;}
-    .phone img{display: inline-block;width: 25px;height:25px;vertical-align: middle;padding: 2px;margin: 3px;background: rgba(255,255,255,0.1);border-radius: 50%;}
-    .phone img:hover{background: #fff;}
+    .phone{font-size: 16px;text-align: left;position: relative;}
+    .phone img{display: inline-block;width: 40px;height:40px;vertical-align: middle;padding: 2px;margin: 3px;background: #353795;border-radius: 50%;}
+    .phone img:hover{background: black;}
     .phone p{font-family:'Montserrat',sans-serif;display: inline-block;color: white;vertical-align: middle;font-size: 14px;}
-    .phone span{position: absolute;right: 100px;color: #fff;font-family:'Montserrat',sans-serif;font-weight: bold;font-size: 12px;}
+    .phone span{text-align:right;color: #353795;font-family:'Montserrat',sans-serif;font-weight: bold;font-size: 16px;font-weight: bold;display: block;}
 
     #menutours{background: #000;overflow: hidden;}
     .menutours-open{height: auto;padding: 20px 80px;}
@@ -135,8 +154,6 @@ box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 100px; width: 100%;he
         menutours.className='menutours-close'
        }
     }
-
-        move();
         movelogo();
     function move(){
         setTimeout(function(){ 
@@ -149,4 +166,18 @@ box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 100px; width: 100%;he
             document.getElementById("icon").className = "icon2";
          },4000);
     }
+
+
+window.onscroll = function() {
+  windowScroll();
+};
+
+function windowScroll() {
+    var mainNav = document.getElementById('menu-lefts');
+  if (document.body.scrollTop > 140 || document.documentElement.scrollTop > 140) {
+    mainNav.className = "menu-left-scroll";
+  } else {
+    mainNav.className = "menu-left";
+  }
+}
 </script>
