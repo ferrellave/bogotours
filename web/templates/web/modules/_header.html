@@ -3,14 +3,22 @@
 <div class="swiper-container">
 <div class="swiper-wrapper">
 
-    <div class="swiper-slide">
-    <div class="banner" id="banner1">
-    <img class="overlogo" src="/static/img/go.png">
-    <h3>LA CANDELARIA <br>CENTRO HISTORICO
-        <span>Muchas historias</span>
-    </h3>
-    </div>
-    </div>
+{%for group in group%}
+{%if group.first.title=="Bogotour"%}
+    {%for profile in profile %}
+    {%if profile.page.title == group.first.title%}
+        <div class="swiper-slide">
+        <div class="banner" id="banner1">
+        <img class="overlogo" src="/static/img/go.png">
+        <h3>{{profile.page.title}} <br>CENTRO HISTORICO
+            <span>Muchas historias</span>
+        </h3>
+        </div>
+        </div>
+    {%endif%}
+    {%endfor%}
+{%endif%}
+{%endfor%}
 
 </div>
 <div class="swiper-pagination"></div>

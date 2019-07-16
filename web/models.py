@@ -269,9 +269,33 @@ class Group(models.Model):
         return self.slug
 
     def save(self):
-        super(Trend, self).save()
+        super(Group, self).save()
         date = self.created
         self.slug = '%i-%i-%i-group-%i' % (
             date.year, date.month, date.day, self.id
         )
         super(Group, self).save()
+
+class Profile(models.Model):
+    page = models.ForeignKey(Page, on_delete=models.CASCADE, blank=True, null=True, related_name="page")
+    description = models.TextField(blank=True, verbose_name="Description")
+    photo = models.ImageField(upload_to='photos', blank=True, null=True)
+    created = models.DateTimeField(default=now, editable=False)
+    updated = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
+    slug = models.SlugField(editable=False)
+
+    class Meta:
+        ordering = ['created']
+        verbose_name = "Page"
+        verbose_name_plural = 'Pages'
+
+    def __unicode__(self):
+        return self.slug
+
+    def save(self):
+        super(Profile, self).save()
+        date = self.created
+        self.slug = '%i-%i-%i-profile-%i' % (
+            date.year, date.month, date.day, self.id
+        )
+        super(Profile, self).save()
