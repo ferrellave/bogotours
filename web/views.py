@@ -33,6 +33,8 @@ def home(request):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
+    page = Page.objects.all().order_by('-id')
+    group = Group.objects.all().order_by('-id')
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
