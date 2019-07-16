@@ -286,8 +286,8 @@ class Profile(models.Model):
 
     class Meta:
         ordering = ['created']
-        verbose_name = "Page"
-        verbose_name_plural = 'Pages'
+        verbose_name = "Profile"
+        verbose_name_plural = 'Profiles'
 
     def __unicode__(self):
         return self.slug
