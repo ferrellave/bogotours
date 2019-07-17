@@ -6,7 +6,11 @@
     {%if profile.page.title == group.first.title%}
 	<article>
 		<figure>
-			<img src="/media/">
+			{%for profiles in profiles%}
+			{%if profiles.page.title == group.child.title%}
+			<img src="/media/{{profiles.photo}}">
+			{%endif%}
+			{%endfor%}
 		</figure>
 		<h3>{{group.child.title}}</h3>
 	</article>

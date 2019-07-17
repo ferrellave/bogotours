@@ -36,6 +36,7 @@ def home(request):
     page = Page.objects.all().order_by('ordering')
     group = Group.objects.all().order_by('-id')
     profile = Profile.objects.all().order_by('-id')
+    profiles = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
