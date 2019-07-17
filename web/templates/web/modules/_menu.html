@@ -8,8 +8,7 @@
                     <a href="https://www.instagram.com/bogotourstravel"><img src="/static/img/social/instagram.png"></a>
                     <a href="mailto:info@bogotours.co"><img src="/static/img/social/gmail.png"></a>
                     <a href="https://www.youtube.com/channel/UClHGTwgioYz5tcSNzYLVCpA"><img src="/static/img/social/youtube.png"></a>
-                    <br><br>
-                    <a class="menulogo" href="#portada"><img src="/static/img/menu.png"></a>
+
                 </div>
             </td>
             <td>
@@ -65,6 +64,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     <li><a href="#">{{page.title}}</a></li>
     {%endfor%}
     <li><a href="{% url 'web.contact' %}">Contáctenos</a></li>
+    <a class="menulogo" onclick="menures()"><img src="/static/img/menu.png"></a>
     </ul>
 </nav>
 <nav id="menutours" class="menutours-close">
@@ -88,13 +88,13 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 .backing{background: #fff;}
         .menu-left{-webkit-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);
 -moz-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);
-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 100px; width: 100%;height: auto;background: #353795;top: 0;left: 0;position: relative;}
+box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 20px; width: 100%;height: auto;background: #353795;top: 0;left: 0;position: relative;}
     #menu-left table{text-align: center; width: 100%;padding: 10px;}
     #menu-left table td{display: inline-block;width: 33%;text-align: center;vertical-align: top;}
 
     .menu-left-scroll{-webkit-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);
 -moz-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);
-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 120px; width: 100%;height: auto;background: #353795 url(/static/img/logo-bogotours.png)no-repeat left 10px center;background-size:90px;top: 0;left: 0;position: fixed!important;top: 0;z-index: 10;}
+box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 100px; width: 100%;height: auto;background: #353795 url(/static/img/logo-bogotours.png)no-repeat left 10px center;background-size:80px;top: 0;left: 0;position: fixed!important;top: 0;z-index: 10;}
 
     #menu-lefts ul{padding-top: 5px;padding-bottom: 5px;}
     #menu-lefts ul li a img{width: 12px;margin-left: 5px;display: inline-block;vertical-align: middle;}
@@ -105,7 +105,7 @@ box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 120px; width: 100%;he
     .icon img{height: 50px;}
     .icon2 img{height: 90px;}
     .blue{font-size: 12px;color: #353795;}
-    .menulogo{background: #353795;display: inline-block;padding: 2px;}
+    .menulogo{background: #353795;display: inline-block;padding: 2px;position: absolute;right: 20px;}
     .menulogo img{border-radius: 2px!important;background: #353795!important;width: 30px;}
 
     .phone{font-size: 16px;text-align: left;position: relative;}
@@ -127,7 +127,7 @@ box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 120px; width: 100%;he
         .phone{padding: 5px;}
         .phone span{position: relative;right: 0;}
         .phone p{display: block;}
-        .menu-left{padding: 0px;}
+        .menu-left{padding: 0px;width: 50%;}
         #menu-lefts{position: relative;}
         #menu-lefts ul{position: relative;padding: 5px;}
         .menutours-open{height: auto;padding:5px;}
@@ -137,5 +137,47 @@ box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.52);padding:10px 120px; width: 100%;he
         #menu-left img{width: 30px;height: auto;}
         #icon img{width: 90%!important;}
         #icon img:hover{height: auto;width: 90%;}
+        #menu-lefts ul li{display: none;}
+        #menu-lefts ul{height: 50px;width: 100%;position: initial;display: block;}
+        .menu-left-scroll ul{height: 30px!important}
+        .menulogo{display: block!important;top: 10px;}
     }
 </style>
+
+<script type="text/javascript">
+    function menutours(){
+       var menutours = document.getElementById("menutours")
+       if(menutours.className=='menutours-close'){
+        menutours.className='menutours-open'
+       } else{
+        menutours.className='menutours-close'
+       }
+    }
+        movelogo();
+    function move(){
+        setTimeout(function(){ 
+            document.getElementById("backing").className = "backing2";
+         },4000);
+    }
+
+    function movelogo(){
+        setTimeout(function(){ 
+            document.getElementById("icon").className = "icon2";
+         },4000);
+    }
+
+window.onscroll = function() {
+  windowScroll();
+};
+
+function windowScroll() {
+    var mainNav = document.getElementById('menu-lefts');
+  if (document.body.scrollTop > 140 || document.documentElement.scrollTop > 140) {
+    mainNav.className = "menu-left-scroll";
+  } else {
+    mainNav.className = "menu-left";
+  }
+}
+</script>
+
+

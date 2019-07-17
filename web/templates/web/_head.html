@@ -24,15 +24,22 @@
   <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v3.3"></script>
 {% include 'web/modules/_loader.html' %}
+    
+    {% include 'web/modules/_menures.html' %}
 
-    {% include 'web/modules/_menu.html' %}  
-    <div id="container" class="container">
-    <div class="border">
-    {% block content %}{% endblock content %}
-    {% include 'web/modules/_whatsapp.html' %}
-    {% include 'web/modules/_footer.html' %}
+    <div class="blured" id="blur">
+
+      {% include 'web/modules/_menu.html' %}  
+      <div id="container" class="container">
+      <div class="border">
+      {% block content %}{% endblock content %}
+      {% include 'web/modules/_whatsapp.html' %}
+      {% include 'web/modules/_footer.html' %}
+      </div>
+      </div>
+
     </div>
-    </div>
+
 
 {% include 'web/modules/_swiperconf.html' %}
 

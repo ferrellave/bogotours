@@ -1,0 +1,48 @@
+<section id="menulay" class="menulayClose">
+</section>
+
+<div id="menures" class="menuresClose">
+    <a onclick="menures()" class="close"></a>
+    <ul>
+    <li><a href="{% url 'web.home' %}">Inicio</a></li>
+    {%for page in page %}
+    <li><a href="#">{{page.title}}</a></li>
+    {%endfor%}
+    <li><a href="{% url 'web.contact' %}">Contáctenos</a></li>
+    </ul>
+</div>
+
+<style type="text/css">
+    #menulay{background: rgba(255,255,255,0.5);width: 100%;
+        height: 100%;position: fixed;z-index:20;top: 0;left: 0;}
+    #menures{width: 300px;height: 100%;z-index: 30;background: white;top: 0;position: fixed;overflow: auto;padding: 20px;padding-top: 80px;}
+    .close{display: block;position: absolute;right: 20px;width: 50px;height: 50px;background: orange url(/static/img/back.png)no-repeat center center;background-size:80%;border-radius: 50%;top: 20px;}
+    #menures ul li a{color: #000;font-family: 30px;padding: 8px;display: block;}
+    .menuresclose{}
+    .blur{filter: blur(6px);overflow: hidden;height: 100%;}
+    .blured{}
+    .menuresClose{left: -300px;}
+    .menures{left: 0px;}
+    .menulayClose{display: none;}
+    .menulay{display: block;}
+
+        @media screen and (max-width:833px){
+        	#menures{width: 90%;}
+    }
+
+</style>
+
+<script type="text/javascript">
+	
+	function menures(){
+		if(document.getElementById('menures').className == 'menuresClose'){
+			document.getElementById('menures').className = 'menures';
+			document.getElementById('menulay').className = 'menulay';
+			document.getElementById('blur').className = 'blur'
+		} else if (document.getElementById('menures').className == 'menures'){
+			document.getElementById('menures').className = 'menuresClose';
+			document.getElementById('menulay').className = 'menulayClose';
+			document.getElementById('blur').className = 'blured'
+		}
+	}
+</script>
