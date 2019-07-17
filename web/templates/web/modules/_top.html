@@ -13,6 +13,11 @@
 			{%endfor%}
 		</figure>
 		<h3>{{group.child.title}}</h3>
+		{%for groups in groups%}
+		{%if groups.child.title == group.child.title%}
+		<strong>{{groups.first.title}}</strong>
+		{%endif%}
+		{%endfor%}
 	</article>
     {%endif%}
     {%endfor%}
@@ -25,8 +30,9 @@
 	.top-pages article{width: 33%;display: inline-block;vertical-align: top;}
 	.top-pages article figure{background:#333;width: 100%;height: 250px;overflow: hidden;text-align: center;}
 	.top-pages article figure img{width: 120%;}
-	.top-pages article h3{padding: 10px;font-size: 16px;}
-	.toph4{color: #353795;margin: 30px auto;display: block;font-size: 30px;text-align: center;font-family: montserrat}
+	.top-pages article h3{padding: 5px;font-size: 18px;text-align: left;color: #000;}
+	.top-pages article strong{color: #666;text-align: left;padding: 5px;font-size: 14px;border: 1px solid #888;}
+	.toph4{color: #353795;margin: 30px auto;display: block;font-size: 30px;text-align: center;font-family: montserrat;}
 
 	        @media screen and (max-width:833px){
         .top-pages article{width: 100%;}
