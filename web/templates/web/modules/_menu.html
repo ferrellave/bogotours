@@ -61,7 +61,9 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     <ul>
     <li><a href="{% url 'web.home' %}">Inicio</a></li>
     {%for page in page %}
+    {%if page.menu == 1%}
     <li><a href="#">{{page.title}}</a></li>
+    {%endif%}
     {%endfor%}
     <li><a href="{% url 'web.contact' %}">Contáctenos</a></li>
     <a class="menulogo" onclick="menures()"><img src="/static/img/menu.png"></a>

@@ -33,7 +33,7 @@ def home(request):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
-    page = Page.objects.all().order_by('-ordering')
+    page = Page.objects.all().order_by('ordering')
     group = Group.objects.all().order_by('-id')
     profile = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
@@ -49,7 +49,7 @@ def us(request):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
-    page = Page.objects.all().order_by('-ordering')
+    page = Page.objects.all().order_by('ordering')
     group = Group.objects.all().order_by('-id')
     profile = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
@@ -64,7 +64,7 @@ def items(request):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
-    page = Page.objects.all().order_by('-ordering')
+    page = Page.objects.all().order_by('ordering')
     group = Group.objects.all().order_by('-id')
     profile = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
@@ -80,7 +80,7 @@ def item(request, slug):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
-    page = Page.objects.all().order_by('-ordering')
+    page = Page.objects.all().order_by('ordering')
     group = Group.objects.all().order_by('-id')
     profile = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
@@ -96,7 +96,7 @@ def itemgallery(request, slug):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
-    page = Page.objects.all().order_by('-ordering')
+    page = Page.objects.all().order_by('ordering')
     group = Group.objects.all().order_by('-id')
     profile = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
@@ -114,7 +114,7 @@ def blog(request, slug):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
-    page = Page.objects.all().order_by('-ordering')
+    page = Page.objects.all().order_by('ordering')
     group = Group.objects.all().order_by('-id')
     profile = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
@@ -130,7 +130,7 @@ def blogs(request):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
-    page = Page.objects.all().order_by('-ordering')
+    page = Page.objects.all().order_by('ordering')
     group = Group.objects.all().order_by('-id')
     profile = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
@@ -144,7 +144,7 @@ def contact(request):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
-    page = Page.objects.all().order_by('-ordering')
+    page = Page.objects.all().order_by('ordering')
     group = Group.objects.all().order_by('-id')
     profile = Profile.objects.all().order_by('-id')
     if request.method =='POST':
