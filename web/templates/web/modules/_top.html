@@ -1,9 +1,9 @@
 <section class="top-pages">
 	<h4 class="toph4">TOP - BOGOTOUR</h4>
 {%for group in group%}
-{%if group.first.id == 2%}
+{%if group.first.title == "Bogotours"%}
     {%for profile in profile %}
-    {%if profile.page.id == group.first.id%}
+    {%if profile.page.title == group.first.title%}
 	<article>
 		<figure>
 			<img src="/media/">
