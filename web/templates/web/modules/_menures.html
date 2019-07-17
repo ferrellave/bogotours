@@ -7,7 +7,7 @@
     <li><a href="{% url 'web.home' %}">Inicio</a></li>
     {%for page in page %}
     {%if page.menu == 1%}
-    <li><a href="#">{{page.title}}</a></li>
+    <li><a href="{%url 'web.page' page.slug%}">{{page.title}}</a></li>
     {%endif%}
     {%endfor%}
     <li><a href="{% url 'web.contact' %}">Contáctenos</a></li>
