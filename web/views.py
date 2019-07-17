@@ -41,6 +41,26 @@ def home(request):
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
+def page(request, slug):
+
+    template = 'web/page.html'
+    link = Page.objects.get(slug = slug)
+    category = Category.objects.all().order_by('id')
+    item = Item.objects.all().order_by('id')
+    items = Item.objects.all().order_by('id')
+    section = Section.objects.all().order_by('id')
+    photo = Photo.objects.all().order_by('id')
+    blog = Blog.objects.all().order_by('-id')
+    tag = Tag.objects.all().order_by('-id')
+    pages = Page.objects.all().order_by('ordering')
+    page = Page.objects.all().order_by('ordering')
+    group = Group.objects.all().order_by('-id')
+    groups = Group.objects.all().order_by('-id')
+    profile = Profile.objects.all().order_by('-id')
+    profiles = Profile.objects.all().order_by('-id')
+    return render_to_response(template,locals(),
+                                context_instance=RequestContext(request))
+
 def us(request):
 
     template = 'web/us.html'

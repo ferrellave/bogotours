@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^registro/$', 'web.views.signup_view', name='web.signup'),
     url(r'^entrar/$', 'web.views.login_view', name='web.login'),
     url(r'^salir/$', 'web.views.logout_view', name='web.logout'),
+    url(r'^es/(?P<slug>[^\.]+)/$', 'web.views.page', name='web.page'),
 ]

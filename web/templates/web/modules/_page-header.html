@@ -4,7 +4,7 @@
 <div class="swiper-wrapper">
 
 {%for group in group%}
-{%if group.first.title == "Bogotours"%}
+{%if group.first.title == link.title%}
     {%for profile in profile %}
     {%if profile.page.title == group.first.title%}
         <div class="swiper-slide">
@@ -15,7 +15,8 @@
         </h3>
         </div>
         </div>
-        <style type="text/css">
+
+                <style type="text/css">
             {%for profiles in profiles%}
             {%if profiles.page.title == group.child.title%}
             #banner{{group.child.id}}{background: url(/media/{{profiles.photo}})no-repeat center center;background-size: cover;}
@@ -23,6 +24,7 @@
             {%endif%}
             {%endfor%}
         </style>
+
     {%endif%}
     {%endfor%}
 {%endif%}
@@ -51,7 +53,6 @@
     .banner a{display:inline-block;background: white;padding: 20px 30px;font-size: 30px;color: #3365f6;border-radius: 60px;font-weight: normal;}
     .banner img{width: 100%;height: auto;}
     .overlogo{opacity:0.4   ;position: absolute; top:10px;right: 20px;width: 130px!important;height: auto;}
-  
     .overl{position: absolute;bottom: 0px;width: 100%;height: 40px;z-index: 1;right: -40px;}
     .overl img{width: 100%;}
         @media screen and (max-width:833px){
