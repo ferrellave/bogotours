@@ -1,4 +1,5 @@
 <section class="top-pages">
+	<h4 class="toph4">TOP - BOGOTOUR</h4>
 {%for group in group%}
 {%if group.first.title == "Bogotours"%}
     {%for profile in profile %}
@@ -21,6 +22,7 @@
 	.top-pages article figure{background:#333;width: 100%;height: 250px;overflow: hidden;text-align: center;}
 	.top-pages article figure img{width: 120%;}
 	.top-pages article h3{padding: 10px;font-size: 16px;}
+	.toph4{color: #353795;padding: 20px auto;display: block;font-size: 30px;text-align: center;}
 
 	        @media screen and (max-width:833px){
         .top-pages article{width: 100%;}
