@@ -33,7 +33,7 @@ def home(request):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
-    page = Page.objects.all().order_by('-id')
+    page = Page.objects.all().order_by('-ordering')
     group = Group.objects.all().order_by('-id')
     profile = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
@@ -49,6 +49,9 @@ def us(request):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
+    page = Page.objects.all().order_by('-ordering')
+    group = Group.objects.all().order_by('-id')
+    profile = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 def items(request):
@@ -61,6 +64,9 @@ def items(request):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
+    page = Page.objects.all().order_by('-ordering')
+    group = Group.objects.all().order_by('-id')
+    profile = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
@@ -74,6 +80,9 @@ def item(request, slug):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
+    page = Page.objects.all().order_by('-ordering')
+    group = Group.objects.all().order_by('-id')
+    profile = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
@@ -87,6 +96,9 @@ def itemgallery(request, slug):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
+    page = Page.objects.all().order_by('-ordering')
+    group = Group.objects.all().order_by('-id')
+    profile = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
@@ -102,6 +114,9 @@ def blog(request, slug):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
+    page = Page.objects.all().order_by('-ordering')
+    group = Group.objects.all().order_by('-id')
+    profile = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
@@ -115,6 +130,9 @@ def blogs(request):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
+    page = Page.objects.all().order_by('-ordering')
+    group = Group.objects.all().order_by('-id')
+    profile = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
@@ -126,6 +144,9 @@ def contact(request):
     photo = Photo.objects.all().order_by('id')
     blog = Blog.objects.all().order_by('-id')
     tag = Tag.objects.all().order_by('-id')
+    page = Page.objects.all().order_by('-ordering')
+    group = Group.objects.all().order_by('-id')
+    profile = Profile.objects.all().order_by('-id')
     if request.method =='POST':
         formulario = FormularioContacto(request.POST)
         if formulario.is_valid():
