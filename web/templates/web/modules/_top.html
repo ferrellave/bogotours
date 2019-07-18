@@ -5,10 +5,13 @@
     {%for profile in profile %}
     {%if profile.page.title == group.first.title%}
 	<article>
+		
 		<figure>
 			{%for profiles in profiles%}
 			{%if profiles.page.title == group.child.title%}
+			<a href="{%url 'web.page' profiles.page.slug%}">
 			<img src="/media/{{profiles.photo}}">
+			</a>
 			{%endif%}
 			{%endfor%}
 		</figure>
