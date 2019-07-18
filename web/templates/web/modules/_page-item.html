@@ -1,0 +1,57 @@
+{%for profile in profile %}
+    {%if profile.item%}
+    {%if profile.page.title == link.title %}
+<section class="tours">
+    <article>
+        <figure>
+        <a href="{%url 'web.item' profile.item.slug%}">
+        <img src="/media/{{profile.item.picture}}">
+        </a>
+        <span>{{profile.item.price}}</span>
+        </figure>
+        <div>
+        <h4>{{profile.item.title}}</h4> 
+        <p>{{profile.item.description|safe}}</p>
+         <table class="thistour-icons">
+            <td><img src="/static/img/calendar.png"><p>{{profile.item.day}}</p></td>
+            <td><img src="/static/img/time.png"><p>{{profile.item.time}}</p></td>
+            <td><img src="/static/img/clock.png"><p>{{profile.item.hours}}</p></td>
+            <td><img src="/static/img/info.png"><p>{{profile.item.section}}</p></td>
+        </table>
+        </div>
+        <div>
+            {% for photo in photo %}
+            {%if photo.item.title == profile.item.title%}
+            <a href="{%url 'web.itemgallery' profile.item.slug%}">
+            <img src="/media/{{photo.file}}">
+            </a>
+            {%endif%}
+            {%endfor%}
+        </div>
+    </article>
+    {%endif%}
+     {%endif%}
+    {%endfor%}
+</section>
+
+<style type="text/css">
+    .tours{text-align:center;background;padding: 10px;background: white;}
+.tours article{-webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.52);
+-moz-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.52);
+box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.52);background:white;text-align:left;display: inline-block;vertical-align: top;width: 100%;margin: 3px 3px;border:1px solid rgba(0,0,0,0.1);border-radius: 5px;overflow: hidden;}
+.tours article img{width: 100%;height:auto;border-radius: 1px;display:inline-block;vertical-align: top;}
+.tours article figure{position:relative;width: 40%;height: 280px;overflow: hidden;display: inline-block;vertical-align: top;}
+.tours h4{text-align:left;padding: 20px 0;font-size: 20px;}
+.tours div{display: inline-block;width: 29%;padding-left: 20px;vertical-align: top;}
+.tours div img{display: inline-block;width: 49%;height: 100px;}
+.thistour-icons img{height: auto!important;}
+.tours article figure span{position:absolute;left: 20px;bottom:20px;background: green;color: white;padding: 10px 30px;font-size:14px;font-weight: bold;}
+
+@media screen and (max-width:833px){
+        .tours{padding: 5px;}
+        .tours article figure{width: 100%;height: auto;}
+        .tours div{width: 100%;height: auto;padding: 5px;}
+        .tours div img{width: 100%;height: auto;}
+    }
+
+</style>
