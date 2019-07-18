@@ -3,7 +3,7 @@
 <div class="swiper-container">
 <div class="swiper-wrapper">
 
-{%for group in group%}
+{%for group in group reversed%}
 {%if group.first.title == "Bogotours"%}
     {%for profile in profile %}
     {%if profile.page.title == group.first.title%}
