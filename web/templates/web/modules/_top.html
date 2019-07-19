@@ -15,6 +15,9 @@
 			{%endfor%}
 		</figure>
 		<h3>{{group.child.title}}</h3>
+		{%if group.child.item%}
+		<p>{{group.child.item.title}}</p>
+		{%endif%}
 		{%for groups in groups%}
 		{%if groups.child.title == group.child.title%}
 		<strong>{{groups.first.title}}</strong>
