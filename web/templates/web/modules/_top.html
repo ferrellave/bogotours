@@ -5,7 +5,6 @@
     {%for profile in profile %}
     {%if profile.page.title == group.first.title%}
 	<article>
-		
 		<figure>
 			{%for profiles in profiles%}
 			{%if profiles.page.title == group.child.title%}
@@ -38,6 +37,43 @@
 	{%endif%}
 	{%endfor%}
 </section>
+<h4 class="toph4">NATURALEZA</h4>
+<section class="top-naturaleza">
+	<div class="nat-left">
+	{%for group in group%}
+{%if group.first.title == "Naturaleza"%}
+    {%for profile in profile %}
+    {%if profile.page.title == group.first.title%}
+		{%for profiles in profiles%}
+			{%if profiles.page.title == group.child.title%}
+			<article>
+			<a href="{%url 'web.page' profiles.page.slug%}">
+			<img src="/media/{{profiles.photo}}">
+			</a>
+			</article>
+			{%endif%}
+			{%endfor%}
+	    {%endif%}
+    {%endfor%}
+{%endif%}
+{%endfor%}
+	</div><div class="nat-right">
+		<article><figure><img src=""></figure></article>
+		<br>
+		<article><figure><img src=""></figure></article>
+	</div>
+</section>
+
+<style type="text/css">
+	.top-naturaleza{padding: 10px;}
+	.top-naturaleza div{padding: 10px;}
+	.nat-left{display: inline-block;vertical-align: top;width: 70%;}
+	.nat-right{display: inline-block;vertical-align: top;width: 20%;}
+	.nat-left article{height: 300px;}
+	.nat-right article{height: 140px;}
+	.top-naturaleza article{width: 100%;}
+	.top-naturaleza article figure img{width: 100%;height: 100%;background: yellow;}
+</style>
 
 <style type="text/css">
 	.top-off{background: #333;text-align: center;padding: 20px;}
