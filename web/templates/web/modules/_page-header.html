@@ -3,7 +3,24 @@
 <div class="swiper-container">
 <div class="swiper-wrapper">
 
-{%for group in group reversed%}
+    {%for profile in profile %}
+    {%if profile.page.title == link.title%}
+        <div class="swiper-slide">
+        <div class="banner" id="banner{{link.slug}}">
+        <img class="overlogo" src="/static/img/go.png">
+        <h3>{{link.title}} <br>CENTRO HISTORICO
+            <span>Muchas historias</span>
+        </h3>
+        </div>
+        </div>
+        <style type="text/css">
+            #banner{{link.slug}}{background: url(/media/{{profile.photo}})no-repeat center center;background-size: cover;}
+            <img src="/media/{{profile.photo}}">
+        </style>
+    {%endif%}
+    {%endfor%}
+
+{%for profile in profile reversed%}
 {%if group.first.title == link.title%}
     {%for profile in profile %}
     {%if profile.page.title == group.first.title%}
