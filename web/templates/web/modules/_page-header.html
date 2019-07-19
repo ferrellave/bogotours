@@ -20,9 +20,9 @@
     {%endif%}
     {%endfor%}
 
-{%for profile in profile reversed%}
+{%for group in group reversed%}
 {%if group.first.title == link.title%}
-    {%for profile in profile %}
+    {%for profile in profile reversed%}
     {%if profile.page.title == group.first.title%}
         <div class="swiper-slide">
         <div class="banner" id="banner{{group.child.id}}">
