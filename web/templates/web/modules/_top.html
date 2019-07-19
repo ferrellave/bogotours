@@ -29,6 +29,24 @@
 {%endfor%}
 </section>
 
+<h4 class="toph4">OFF - BOGOTOUR</h4>
+<section class="top-off">
+	<h5>LAS MARAVILLAS FUERA DE BOGOTÁ</h5>
+	{%for profile in profile%}
+	{%if profile.photo%}
+	<article><figure><img src="/media/{{profile.photo}}"></figure></article>
+	{%endif%}
+	{%endfor%}
+</section>
+
+<style type="text/css">
+	.top-off{background: #333;text-align: center;padding: 20px;}
+	.top-off h5{color: yellow;font-size: 18px;}
+	.top-off article{display: inline-block;vertical-align: middle;margin: 0 -2px;}
+	.top-off article figure img{width: 150px;height: 100px;margin: 50px 0px;}	
+	.top-off article figure img:hover{width: 250px;height: 200px;margin: 0px 0px}
+</style>
+
 <style type="text/css">
 	.top-pages{background: #fff;padding: 20px;}
 	.top-pages article{width: 33%;display: inline-block;vertical-align: top;}
