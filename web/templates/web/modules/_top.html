@@ -32,9 +32,15 @@
 <h4 class="toph4">OFF - BOGOTOUR</h4>
 <section class="top-off">
 	<h5>LAS MARAVILLAS FUERA DE BOGOTÁ</h5>
-	{%for profile in profile%}
-	{%if profile.photo%}
-	<article><figure><img src="/media/{{profile.photo}}"></figure></article>
+	{%for profilem in profilem%}
+	{%if profilem.photo%}
+	<article><figure><img src="/media/{{profilem.photo}}"></figure></article>
+	{%endif%}
+	{%endfor%}
+	<br><br><br>
+	{%for profiley in profiley%}
+	{%if profiley.photo%}
+	<article><figure><img src="/media/{{profiley.photo}}"></figure></article>
 	{%endif%}
 	{%endfor%}
 </section>

@@ -37,6 +37,7 @@ def home(request):
     group = Group.objects.all().order_by('-id')
     groups = Group.objects.all().order_by('-id')
     profile = Profile.objects.all().order_by('-id')
+    profilem = Profile.objects.all()[:7]
     profiles = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
