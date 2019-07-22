@@ -47,7 +47,7 @@
 	{%if group.first.title == "Naturaleza"%}
     {%for profile in profile %}
     {%if profile.page.title == group.first.title%}
-		{%for profilesn in profilesn%}
+		{%for profilesn in profilesn|slice:":1"%}
 			{%if profilesn.page.title == group.child.title%}
 			<article>
 			<a href="{%url 'web.page' profilesn.page.slug%}">

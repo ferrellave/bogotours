@@ -39,7 +39,7 @@ def home(request):
     profile = Profile.objects.all().order_by('-id')
     profilem = Profile.objects.all()[:7]
     profiles = Profile.objects.all().order_by('-id')
-    profilesn = Profile.objects.all()[:2]
+    profilesn = Profile.objects.all().order_by('-id')
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
