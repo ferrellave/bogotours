@@ -59,6 +59,30 @@
 	</p>
 {%endif%}
 
+	<h4 class="toph4">Más en Bogotours</h4>
+{%for group in group%}
+{%if group.child.title == link.title%}
+   {%for groups in groups%}
+   {%if groups.first.title == group.first.title%}
+   		{%for profile in profile%}
+   		{%if profile.page.title == groups.child.title%}
+   		{%if not profile.page.title == link.title%}
+   		<article>
+		<figure>
+			<a href="{%url 'web.page' profile.page.slug%}">
+			<img src="/media/{{profile.photo}}">
+			</a>
+		</figure>
+		<h3>{{profile.page.title}}</h3>
+	</article>
+   		{%endif%}
+   		{%endif%}
+   		{%endfor%}
+   {%endif%}
+   {%endfor%}
+{%endif%}
+{%endfor%}
+
 </section>
 
 <style type="text/css">
