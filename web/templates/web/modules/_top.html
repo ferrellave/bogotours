@@ -114,6 +114,37 @@
 	</div>
 </section>
 
+<section class="top-pages">
+	<h4 class="toph40">EXPERIENCIAS</h4>
+{%for group in group%}
+{%if group.first.title == "Experiencias"%}
+    {%for profile in profile %}
+    {%if profile.page.title == group.first.title%}
+	<article>
+		<figure>
+			{%for profiles in profiles%}
+			{%if profiles.page.title == group.child.title%}
+			<a href="{%url 'web.page' profiles.page.slug%}">
+			<img src="/media/{{profiles.photo}}">
+			</a>
+			<p class="purple">{{profiles.item.title}}</p>
+			{%endif%}
+			{%endfor%}
+		</figure>
+		<h3>{{group.child.title}}</h3>
+		{%for groups in groups%}
+		{%if groups.child.title == group.child.title%}
+		<strong>{{groups.first.title}}</strong>
+		{%endif%}
+		{%endfor%}
+		<br><br>
+	</article>
+    {%endif%}
+    {%endfor%}
+{%endif%}
+{%endfor%}
+</section>
+
 <style type="text/css">
 	.top-naturaleza{padding: 10px;}
 	.top-naturaleza div{padding: 10px;}
