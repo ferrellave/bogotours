@@ -65,9 +65,49 @@
 {%endif%}
 {%endfor%}
 	</div><div class="nat-right">
-		<article><figure><img src=""></figure></article>
+			{%for group in group%}
+	{%if group.first.title == "Naturaleza"%}
+    {%for profile in profile %}
+    {%if profile.page.title == group.first.title%}
+		{%for profilesn in profilesn%}
+			{%if profilesn.page.title == group.child.title%}
+			{%if profilesn.page.id == 19%}
+			<article>
+			<figure>
+			<a href="{%url 'web.page' profilesn.page.slug%}">
+			<img src="/media/{{profilesn.photo}}">
+			</a>
+			</figure>
+			</article>
+			{%endif%}
+			{%endif%}
+			{%endfor%}
+	    {%endif%}
+    {%endfor%}
+{%endif%}
+{%endfor%}
 		<br>
-		<article><figure><img src=""></figure></article>
+			{%for group in group%}
+	{%if group.first.title == "Naturaleza"%}
+    {%for profile in profile %}
+    {%if profile.page.title == group.first.title%}
+		{%for profilesn in profilesn%}
+			{%if profilesn.page.title == group.child.title%}
+			{%if profilesn.page.id == 17%}
+			<article>
+			<figure>
+			<a href="{%url 'web.page' profilesn.page.slug%}">
+			<img src="/media/{{profilesn.photo}}">
+			</a>
+			</figure>
+			</article>
+			{%endif%}
+			{%endif%}
+			{%endfor%}
+	    {%endif%}
+    {%endfor%}
+{%endif%}
+{%endfor%}
 	</div>
 </section>
 
