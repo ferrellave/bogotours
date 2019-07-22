@@ -47,8 +47,9 @@
 	{%if group.first.title == "Naturaleza"%}
     {%for profile in profile %}
     {%if profile.page.title == group.first.title%}
-		{%for profilesn in profilesn|slice:":1"%}
+		{%for profilesn in profilesn%}
 			{%if profilesn.page.title == group.child.title%}
+			{%if profilesn.page.id == 16%}
 			<article>
 			<figure>
 			<a href="{%url 'web.page' profilesn.page.slug%}">
@@ -56,6 +57,7 @@
 			</a>
 			</figure>
 			</article>
+			{%endif%}
 			{%endif%}
 			{%endfor%}
 	    {%endif%}
@@ -72,7 +74,7 @@
 <style type="text/css">
 	.top-naturaleza{padding: 10px;}
 	.top-naturaleza div{padding: 10px;}
-	.top-naturaleza a{display: block;}
+	.top-naturaleza a{display: block;}git push
 	.nat-left{display: inline-block;vertical-align: top;width: 70%;}
 	.nat-right{display: inline-block;vertical-align: top;width: 20%;}
 	.nat-left article{height: 300px;}
