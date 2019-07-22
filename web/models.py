@@ -280,6 +280,7 @@ class Group(models.Model):
 class Profile(models.Model):
     page = models.ForeignKey(Page, on_delete=models.CASCADE, blank=True, null=True, related_name="page")
     description = models.TextField(blank=True, verbose_name="Description")
+    header = models.TextField(blank=True, verbose_name="subtitulo")
     photo = models.ImageField(upload_to='photos', blank=True, null=True)
     item = models.ForeignKey(Item, on_delete=models.CASCADE, blank=True, null=True, related_name="item")
     created = models.DateTimeField(default=now, editable=False)
