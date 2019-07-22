@@ -50,9 +50,11 @@
 		{%for profilesn in profilesn|slice:":1"%}
 			{%if profilesn.page.title == group.child.title%}
 			<article>
+			<figure>
 			<a href="{%url 'web.page' profilesn.page.slug%}">
 			<img src="/media/{{profilesn.photo}}">
 			</a>
+			</figure>
 			</article>
 			{%endif%}
 			{%endfor%}
@@ -70,12 +72,16 @@
 <style type="text/css">
 	.top-naturaleza{padding: 10px;}
 	.top-naturaleza div{padding: 10px;}
+	.top-naturaleza a{display: block;}
 	.nat-left{display: inline-block;vertical-align: top;width: 70%;}
 	.nat-right{display: inline-block;vertical-align: top;width: 20%;}
 	.nat-left article{height: 300px;}
 	.nat-right article{height: 140px;}
+	.nat-left article a{height: 300px;}
+	.nat-right article a{height: 140px;}
 	.top-naturaleza article{width: 100%;}
-	.top-naturaleza article figure img{width: 100%;height: 100%;background: yellow;}
+	.top-naturaleza article figure{width: 100%;height: 100%;}
+	.top-naturaleza article figure a img{width: 100%;height: 100%;background: yellow;}
 </style>
 
 
