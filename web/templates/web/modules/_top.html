@@ -40,7 +40,7 @@
 </section>
 
 
-<h4 class="toph4">NATURALEZA</h4>
+<h4 class="toph40">NATURALEZA</h4>
 <section class="top-naturaleza">
 	<div class="nat-left">
 	{%for group in group%}
@@ -53,6 +53,7 @@
 			<article>
 			<figure>
 			<a href="{%url 'web.page' profilesn.page.slug%}">
+			<span>{{profilesn.page.title}}</span>
 			<img src="/media/{{profilesn.photo}}">
 			</a>
 			</figure>
@@ -75,6 +76,7 @@
 			<article>
 			<figure>
 			<a href="{%url 'web.page' profilesn.page.slug%}">
+			<span>{{profilesn.page.title}}</span>
 			<img src="/media/{{profilesn.photo}}">
 			</a>
 			</figure>
@@ -97,6 +99,7 @@
 			<article>
 			<figure>
 			<a href="{%url 'web.page' profilesn.page.slug%}">
+			<span>{{profilesn.page.title}}</span>
 			<img src="/media/{{profilesn.photo}}">
 			</a>
 			</figure>
@@ -114,7 +117,8 @@
 <style type="text/css">
 	.top-naturaleza{padding: 10px;}
 	.top-naturaleza div{padding: 10px;}
-	.top-naturaleza a{display: block;}
+	.top-naturaleza a{display: block;position: relative;}
+	.top-naturaleza a span{display: block;position: absolute;top: 0;left: 0;padding: 20px;color: yellow;font-size: 26px;font-family: montserrat;text-transform: uppercase;}
 	.nat-left{display: inline-block;vertical-align: top;width: 70%;}
 	.nat-right{display: inline-block;vertical-align: top;width: 30%;}
 	.nat-left article{height: 500px;}
@@ -122,6 +126,7 @@
 	.top-naturaleza article{width: 100%;}
 	.top-naturaleza article figure{width: 100%;height: 100%;}
 	.top-naturaleza article figure img{width: 100%;height: 100%;background: yellow;}
+	.toph40{color: #000;margin: 30px auto;display: block;font-size: 30px;text-align: center;font-family: montserrat;}
 		        @media screen and (max-width:833px){
        .nat-left{display: inline-block;vertical-align: top;width: 100%;}
 	.nat-right{display: inline-block;vertical-align: top;width: 100%;}
