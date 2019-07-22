@@ -145,6 +145,40 @@
 {%endfor%}
 </section>
 
+<section class="eldorado">
+	<table>
+		<td class="td300">
+			{%for group in group%}
+				{%if group.first.title == "Viajeros Transfer"%}
+			    {%for profile in profile %}
+			    {%if profile.page.title == group.first.title%}
+					{%for profilesn in profilesn%}
+						{%if profilesn.page.title == group.child.title%}
+						{%if profilesn.page.id == 30%}
+						<article>
+						<figure>
+						<a href="{%url 'web.page' profilesn.page.slug%}">
+						<span>{{profilesn.page.title}}</span>
+						<img src="/media/{{profilesn.photo}}">
+						</a>
+						</figure>
+						</article>
+						{%endif%}
+						{%endif%}
+						{%endfor%}
+				    {%endif%}
+			    {%endfor%}
+			{%endif%}
+			{%endfor%}
+		</td>
+		<td class="tdmorado">
+			<p>tour tres horas</p>
+			<p>tour 5 horas</p>
+			<p>traslados a su hospedaje</p>
+		</td>
+	</table>
+</section>
+
 <style type="text/css">
 	.top-naturaleza{padding: 10px;}
 	.top-naturaleza div{padding: 10px;}
@@ -158,6 +192,9 @@
 	.top-naturaleza article figure{width: 100%;height: 100%;}
 	.top-naturaleza article figure img{width: 100%;height: 100%;background: yellow;}
 	.toph40{color: #000;margin: 30px auto;display: block;font-size: 30px;text-align: center;font-family: montserrat;}
+	.td300{width: 300px;}
+	.td300 img{width: 100%;height: auto;}
+	.tdmorado p{color:#353795;padding: 10px;font-size: 20px;}
 		        @media screen and (max-width:833px){
        .nat-left{display: inline-block;vertical-align: top;width: 100%;}
 	.nat-right{display: inline-block;vertical-align: top;width: 100%;}
