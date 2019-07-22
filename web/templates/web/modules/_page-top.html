@@ -46,9 +46,17 @@
 <p class="desk">
 		<strong>{{link.title}}:</strong>
 	Encuentra La mejor información y Tours sobre {{link.title}} en Bogotours. ¡Reserva Ya!.
+		<br><br>
+			{%for group in group%}
+			{%if group.child.title == link.title%}
+			<strong>
+			<a class="morados" href="{%url 'web.page' group.first.slug%}">
+			{{group.first.title}}
+			</a>
+			</strong>
+			{%endif%}
+			{%endfor%}
 	</p>
-	<br>
-
 {%endif%}
 
 </section>
