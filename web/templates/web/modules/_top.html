@@ -31,14 +31,27 @@
 
 <h4 class="toph4">OFF - BOGOTOUR</h4>
 <section class="top-off">
-	<h5>LAS MARAVILLAS FUERA DE BOGOTÁ</h5>
-	{%for profilem in profilem%}
-	{%if profilem.photo%}
-	<article><figure><img src="/media/{{profilem.photo}}"></figure></article>
-	{%endif%}
-	{%endfor%}
+	{%for group in group%}
+{%if group.first.title == "Tours Fuera"%}
+    {%for profile in profile %}
+    {%if profile.page.title == group.first.title%}
+	<article>
+		<figure>
+			{%for profiles in profiles%}
+			{%if profiles.page.title == group.child.title%}
+			<a href="{%url 'web.page' profiles.page.slug%}">
+			<img src="/media/{{profiles.photo}}">
+			</a>
+			<p class="purple">{{profiles.item.title}}</p>
+			{%endif%}
+			{%endfor%}
+		</figure>
+	</article>
+    {%endif%}
+    {%endfor%}
+{%endif%}
+{%endfor%}
 </section>
-
 
 <h4 class="toph40">NATURALEZA</h4>
 <section class="top-naturaleza">
@@ -207,14 +220,12 @@
     }
 </style>
 
-
-
 <style type="text/css">
 	.top-off{background: #000;text-align: center;padding: 20px;}
 	.top-off h5{color: yellow;font-size: 18px; font-weight: bold;}
 	.top-off article{display: inline-block;vertical-align: middle;margin: 0 -2px;}
-	.top-off article figure img{width: 150px;height: 100px;margin: 50px 0px;}	
-	.top-off article figure img:hover{width: 250px;height: 200px;margin: 0px 0px}
+	.top-off article figure img{width: 150px;height: 250px;margin: 50px 0px;}	
+	.top-off article figure img:hover{width: 300px;height: 200px;margin: 0px 0px}
 </style>
 
 <style type="text/css">
