@@ -6,7 +6,7 @@ class ItemsAdmin(admin.ModelAdmin):
     list_display = ('title', 'section', 'language')
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('id', 'page', 'item')
+    list_display = ('id', 'page', 'item', 'photo')
 
 class GroupsAdmin(admin.ModelAdmin):
     list_display = ('id', 'first', 'child')
