@@ -206,7 +206,7 @@ class Photo(models.Model):
     file = models.ImageField(upload_to='photos', blank=True, null=True)
     item = models.ForeignKey(Item, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Item")
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Blog")
-    page = models.ForeignKey(Page, on_delete=models.CASCADE, blank=True, null=True, related_name="page")
+    page = models.ForeignKey(Page, on_delete=models.CASCADE, blank=True, null=True, verbose_name="page")
     created = models.DateTimeField(default=now, editable=False)
     updated = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
     slug = models.SlugField(editable=False)
