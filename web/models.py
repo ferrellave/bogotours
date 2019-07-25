@@ -181,6 +181,7 @@ class Page(models.Model):
     title = models.CharField(max_length=300, verbose_name="Title")
     description = models.TextField(blank=True, verbose_name="Description")
     header = models.TextField(blank=True, verbose_name="subtitulo")
+    review = models.TextField(blank=True, verbose_name="Review")
     ordering = models.IntegerField(blank=True, default=0, verbose_name="Ordering")
     menu = models.IntegerField(blank=True, default=0, verbose_name="Menu")
     created = models.DateTimeField(default=now, editable=False)
