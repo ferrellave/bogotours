@@ -65,6 +65,39 @@
 	</p>
 {%endif%}
 
+	<h2>Explora las mejores experiencias</h2>
+	<br><br>
+<h3>Encuentra información sobre la ciudad de Bogotá en nuestro Blog</h3>
+<section class="iblogs">
+{%for blog in blog %}
+	<article>
+		<a href="{%url 'web.blog' blog.slug%}">
+		<img src="/media/{{blog.picture}}">
+		</a>
+		<h4>{{blog.title}}</h4>
+		<p>{{blog.description|safe}}</p>
+		<li><a href="{%url 'web.blog' blog.slug%}">Continuar leyendo...</a></li>
+	</article>
+{%endfor%}
+</section>
+
+<style type="text/css">
+	.border{background: #000;}
+	.iblogs{background: #000;padding: 20px;text-align: center;width: 60%;margin: 0 auto;}
+	.iblogs article{display: inline-block;background: #fff;width: 100%;padding:10px;vertical-align: top;border-radius: 5px;margin: 2px;}
+	.iblogs img{width: 100%;border-radius: 5px;}
+	.iblogs p{padding: 20px;font-size: 12px;color: #222;}
+	.iblogs h4{padding: 20px;font-size: 18px;}
+	.iblogs li{display:inline-block;margin: 10px auto;}
+	.iblogs li a{background: black;color: #fff;padding: 10px 20px;display: block;border-radius: 60px;}
+	.world{width: 100%;}
+	@media screen and (max-width:833px){
+        .iblogs{padding: 5px;width: 100%;}
+        .iblogs article{width: 100%;}
+    }
+</style>
+
+
 <section class="page-gall">
 	{% for photo in photo %}
             {%if photo.page.title == link.title%}
