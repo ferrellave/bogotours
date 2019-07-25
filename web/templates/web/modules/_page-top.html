@@ -63,7 +63,7 @@
 	{% for photo in photo %}
             {%if photo.page.title == link.title%}
             <article>
-            <a href="{%url 'web.itemgallery' item.slug%}">
+            <a href="#">
             <img src="/media/{{photo.file}}">
             </a>
             </article>
