@@ -28,6 +28,30 @@
 		{%endif%}
 		{%endfor%}
 
+        {%for group in group%}
+    {%if group.first.title == "Tours Fuera"%}
+        {%for profile in profile %}
+        {%if profile.page.title == group.first.title%}
+        <div class="my-card">
+          <article>
+            <figure>
+              {%for profiles in profiles%}
+              {%if profiles.page.title == group.child.title%}
+            <!--  <a href="{%url 'web.page' profiles.page.slug%}">
+            -->
+              <img src="/media/{{profiles.photo}}">
+              
+              <p class="purple">{{profiles.item.title}}</p>
+              {%endif%}
+              {%endfor%}
+            </figure>
+          </article>
+        </div>
+        {%endif%}
+        {%endfor%}
+    {%endif%}
+    {%endfor%}
+
 </div>
 
 <script>
