@@ -63,7 +63,7 @@
 	{% for photo in photo %}
             {%if photo.page.title == link.title%}
             <article>
-            <a href="#">
+            <a >
             <img src="/media/{{photo.file}}">
             </a>
             </article>
@@ -72,8 +72,11 @@
 
             <style type="text/css">
             	.page-gall{padding: 10px;}
-            	.page-gall article{width: 220px;height: 150px;display: inline-block;vertical-align: middle;}
+            	.page-gall article{width: 49%!important;height: 400px;display: inline-block;vertical-align: middle;}
             	.page-gall article a img{width: 100%;height: 100%;}
+            		@media screen and (max-width:833px){
+        			.page-gall article{width: 100%!important;height: 400px;display: inline-block;vertical-align: middle;}
+    				}
             </style>
 </section>
 
