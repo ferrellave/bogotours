@@ -31,7 +31,12 @@
 	<p class="desk">
 		<strong>{{link.title}}:</strong>
 	{{link.description|safe}}. La mejor información y Tours sobre {{link.title}} en Bogotours. ¡Reserva Ya!.
-		<br><br> <!--
+		<br><br>
+		{%if link.review%} 
+		<strong>Descripción:</strong> 
+		{{link.review}}
+		{%endif%}
+		<!--
 			{%for group in group%}
 			{%if group.child.title == link.title%}
 			<strong>
