@@ -31,26 +31,7 @@
 
 <h4 class="toph4">OFF - BOGOTOUR</h4>
 <section class="top-off">
-	{%for group in group%}
-{%if group.first.title == "Tours Fuera"%}
-    {%for profile in profile %}
-    {%if profile.page.title == group.first.title%}
-	<article>
-		<figure>
-			{%for profiles in profiles%}
-			{%if profiles.page.title == group.child.title%}
-			<a href="{%url 'web.page' profiles.page.slug%}">
-			<img src="/media/{{profiles.photo}}">
-			</a>
-			<p class="purple">{{profiles.item.title}}</p>
-			{%endif%}
-			{%endfor%}
-		</figure>
-	</article>
-    {%endif%}
-    {%endfor%}
-{%endif%}
-{%endfor%}
+{% include 'web/modules/_top-off.html' %}
 </section>
 
 <h4 class="toph40">NATURALEZA</h4>

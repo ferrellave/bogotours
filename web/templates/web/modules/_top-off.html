@@ -2,22 +2,33 @@
 <div class="topa">
 	<div class="topb">
 		
-		
-<div class="heading">
-  <h1>Responsive Smooth Card Carousel</h1>
-</div>
 <div class="card-carousel">
-  <div class="my-card"></div>
-  <div class="my-card"></div>
-  <div class="my-card"></div>
-  <div class="my-card"></div>
-  <div class="my-card"></div>
-  <div class="my-card"></div>
-  <div class="my-card"></div>
-  <div class="my-card"></div>
-  <div class="my-card"></div>
+
+		{%for group in group%}
+		{%if group.first.title == "Tours Fuera"%}
+		    {%for profile in profile %}
+		    {%if profile.page.title == group.first.title%}
+				<div class="my-card">
+					<article>
+						<figure>
+							{%for profiles in profiles%}
+							{%if profiles.page.title == group.child.title%}
+							<a href="{%url 'web.page' profiles.page.slug%}">
+							<img src="/media/{{profiles.photo}}">
+							</a>
+							<p class="purple">{{profiles.item.title}}</p>
+							{%endif%}
+							{%endfor%}
+						</figure>
+					</article>
+				</div>
+		    {%endif%}
+		    {%endfor%}
+		{%endif%}
+		{%endfor%}
+
 </div>
-<script src="jquery-3.3.1.min.js"></script> 
+
 <script>
 $num = $('.my-card').length;
 $even = $num / 2;
@@ -61,7 +72,7 @@ $('html body').keydown(function(e) {
   }
 });
 </script>
-		
+
 	</div>
 </div>
 
