@@ -13,9 +13,10 @@
 						<figure>
 							{%for profiles in profiles%}
 							{%if profiles.page.title == group.child.title%}
-							<a href="{%url 'web.page' profiles.page.slug%}">
+						<!--	<a href="{%url 'web.page' profiles.page.slug%}">
+						-->
 							<img src="/media/{{profiles.photo}}">
-							</a>
+							
 							<p class="purple">{{profiles.item.title}}</p>
 							{%endif%}
 							{%endfor%}
