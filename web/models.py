@@ -177,12 +177,36 @@ class Blog(models.Model):
             self.slug = slugify(self.title)
         super(Blog, self).save(*args, **kwargs)
 
+class Page(models.Model):
+    title = models.CharField(max_length=300, verbose_name="Title")
+    description = models.TextField(blank=True, verbose_name="Description")
+    header = models.TextField(blank=True, verbose_name="subtitulo")
+    ordering = models.IntegerField(blank=True, default=0, verbose_name="Ordering")
+    menu = models.IntegerField(blank=True, default=0, verbose_name="Menu")
+    created = models.DateTimeField(default=now, editable=False)
+    updated = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
+    slug = models.SlugField(editable=False)
+
+    class Meta:
+        ordering = ['created']
+        verbose_name = "Page"
+        verbose_name_plural = 'Pages'
+
+    def __unicode__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.title)
+        super(Page, self).save(*args, **kwargs)
+
 class Photo(models.Model):
     title = models.CharField(max_length=300, verbose_name="Title")
     description = models.TextField(blank=True, verbose_name="Description")
     file = models.ImageField(upload_to='photos', blank=True, null=True)
     item = models.ForeignKey(Item, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Item")
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Blog")
+    page = models.ForeignKey(Page, on_delete=models.CASCADE, blank=True, null=True, related_name="page")
     created = models.DateTimeField(default=now, editable=False)
     updated = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
     slug = models.SlugField(editable=False)
@@ -231,29 +255,6 @@ class Booking(models.Model):
             date.year, date.month, date.day, self.id
         )
         super(Booking, self).save()
-
-class Page(models.Model):
-    title = models.CharField(max_length=300, verbose_name="Title")
-    description = models.TextField(blank=True, verbose_name="Description")
-    header = models.TextField(blank=True, verbose_name="subtitulo")
-    ordering = models.IntegerField(blank=True, default=0, verbose_name="Ordering")
-    menu = models.IntegerField(blank=True, default=0, verbose_name="Menu")
-    created = models.DateTimeField(default=now, editable=False)
-    updated = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
-    slug = models.SlugField(editable=False)
-
-    class Meta:
-        ordering = ['created']
-        verbose_name = "Page"
-        verbose_name_plural = 'Pages'
-
-    def __unicode__(self):
-        return self.title
-
-    def save(self, *args, **kwargs):
-        if not self.id:
-            self.slug = slugify(self.title)
-        super(Page, self).save(*args, **kwargs)
 
 class Group(models.Model):
     first = models.ForeignKey(Page, on_delete=models.CASCADE, blank=True, null=True, related_name="first")
