@@ -34,7 +34,7 @@
 		<br><br>
 		{%if link.review%} 
 		<strong>Descripción:</strong> 
-		{{link.review}}
+		{{link.review|safe}}
 		{%endif%}
 		<!--
 			{%for group in group%}
