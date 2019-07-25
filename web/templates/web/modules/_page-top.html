@@ -11,6 +11,11 @@
 			<a href="{%url 'web.page' profiles.page.slug%}">
 			<img src="/media/{{profiles.photo}}">
 			</a>
+			{%if profiles.page.price == 0%}
+
+			{%else%}
+			<p class="purple">{{profiles.page.price}}</p>
+			{%endif%}
 			{%endif%}
 			{%endfor%}
 		</figure>
