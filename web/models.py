@@ -184,6 +184,8 @@ class Page(models.Model):
     review = models.TextField(blank=True, verbose_name="Review")
     paypal = models.TextField(blank=True, verbose_name="Paypal")
     price = models.CharField(max_length=300, default=0, verbose_name="Price")
+    currency = models.CharField(max_length=300, default=0, verbose_name="Currency")
+    payinf = models.CharField(max_length=300, default=0, verbose_name="Payinf")
     ordering = models.IntegerField(blank=True, default=0, verbose_name="Ordering")
     menu = models.IntegerField(blank=True, default=0, verbose_name="Menu")
     created = models.DateTimeField(default=now, editable=False)
