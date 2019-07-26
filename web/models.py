@@ -182,6 +182,7 @@ class Page(models.Model):
     description = models.TextField(blank=True, verbose_name="Description")
     header = models.TextField(blank=True, verbose_name="subtitulo")
     review = models.TextField(blank=True, verbose_name="Review")
+    paypal = models.TextField(blank=True, verbose_name="Paypal")
     price = models.CharField(max_length=300, default=0, verbose_name="Price")
     ordering = models.IntegerField(blank=True, default=0, verbose_name="Ordering")
     menu = models.IntegerField(blank=True, default=0, verbose_name="Menu")
