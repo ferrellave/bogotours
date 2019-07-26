@@ -11,7 +11,7 @@
 			<a href="{%url 'web.page' profiles.page.slug%}">
 			<img src="/media/{{profiles.photo}}">
 			</a>
-			{%if profiles.page.price == 0%}
+			{%if profiles.page.price == "0"%}
 
 			{%else%}
 			<p class="purple">{{profiles.page.price}}</p>
@@ -92,7 +92,7 @@
 			<a href="{%url 'web.page' profile.page.slug%}">
 			<img src="/media/{{profile.photo}}">
 			</a>
-			{%if profile.page.price == 0%}
+			{%if profile.page.price == "0"%}
 
 			{%else%}
 			<p class="purple">{{profile.page.price}}</p>
