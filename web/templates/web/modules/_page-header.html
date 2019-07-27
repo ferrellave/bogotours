@@ -8,8 +8,10 @@
         <div class="swiper-slide">
         <div class="banner" id="banner{{link.slug}}">
         <img class="overlogo" src="/static/img/go.png">
-        <h3>{{link.title}} <br>
+        <h3>
+            <a href="{%url 'web.page' group.child.slug%}">{{link.title}} <br>
             <span>{{link.header}}</span>
+             </a>
         </h3>
         </div>
         </div>

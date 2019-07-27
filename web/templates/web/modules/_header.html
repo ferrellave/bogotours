@@ -7,21 +7,17 @@
 {%if group.first.title == "Bogotours"%}
     {%for profile in profile %}
     {%if profile.page.title == group.first.title%}
-    
         <div class="swiper-slide">
-            <a href="{%url 'web.page' group.child.slug%}">
         <div class="banner" id="banner{{group.child.id}}">
         <img class="overlogo" src="/static/img/go.png">
         <h3>
-            
+            <a href="{%url 'web.page' group.child.slug%}">
             {{group.child.title}}
             <span>{{group.child.header}}</span>
-           
+            </a>
         </h3>
         </div>
-          </a>
         </div>
-   
         <style type="text/css">
             {%for profiles in profiles%}
             {%if profiles.page.title == group.child.title%}
