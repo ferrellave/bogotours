@@ -59,7 +59,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 </div>
 <nav id="menu-lefts" class="menu-left">
     <ul>
-    <li><a href="{% url 'web.home' %}">Inicio</a></li>
+<!--    <li><a href="{% url 'web.home' %}">Inicio</a></li> -->
     {%for page in page %}
     {%if page.menu == 1%}
     <li><a href="{%url 'web.page' page.slug%}">{{page.title}}</a></li>
