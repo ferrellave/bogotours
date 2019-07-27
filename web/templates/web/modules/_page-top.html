@@ -58,6 +58,10 @@
 
 {%endif%}
 
+{%if link.price%}
+
+<section class="payment">
+
 		    <!-- Set up a container element for the button -->
     <div id="paypal-button-container"></div>
 
@@ -91,6 +95,9 @@
 
         }).render('#paypal-button-container');
     </script>
+
+</section>
+{%endif%}
 
 <section class="page-gall">
 	{% for photo in photo %}
