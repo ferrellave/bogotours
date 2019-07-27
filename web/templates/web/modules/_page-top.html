@@ -58,7 +58,7 @@
 
 {%endif%}
 
-</br></br>
+</br>
 
 {%if link.price == "0" %}
 
@@ -74,6 +74,13 @@
     <script>
         // Render the PayPal button into #paypal-button-container
         paypal.Buttons({
+
+        	style: {
+        		layout: 'vertical',
+        		color: 'blue',
+        		shape: 'rect',
+        		label: 'paypal'
+        	}
 
             // Set up the transaction
             // El valor value es el que debe de modificarse
