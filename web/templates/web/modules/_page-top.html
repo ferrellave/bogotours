@@ -60,7 +60,7 @@
 
 </br></br>
 
-{%if link.price == 0%}
+{%if link.price == "0" %}
 
 {%else%}
 <section class="payment">
@@ -94,7 +94,6 @@
                     alert('Transaction completed by ' + details.payer.name.given_name + '!');
                 });
             }
-
 
         }).render('#paypal-button-container');
     </script>
