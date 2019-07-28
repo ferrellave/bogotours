@@ -22,7 +22,7 @@ from django.middleware.csrf import CsrfViewMiddleware, get_token
 from django.utils.decorators import available_attrs, decorator_from_middleware
 from django.utils import timezone
 
-from ipware.ip import get_ip_address_from_request
+from ipware import get_client_ip
 
 def home(request):
 
@@ -41,7 +41,17 @@ def home(request):
     profilem = Profile.objects.all()[:7]
     profiles = Profile.objects.all().order_by('-id')
     profilesn = Profile.objects.all().order_by('-id')
-    user_ip = get_ip_address_from_request(request)
+    client_ip, is_routable = get_client_ip(request)
+    if client_ip is None:
+    # Unable to get the client's IP address
+    else:
+    # We got the client's IP address
+        if is_routable:
+         # The client's IP address is publicly routable on the Internet
+        else:
+         # The client's IP address is private
+
+    # Order of precedence is (Public, Private, Loopback, None)
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
