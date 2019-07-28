@@ -12,7 +12,7 @@
             <a href="{%url 'web.page' link.slug%}">{{link.title}} <br>
             <span>{{link.header}}</span>
              </a>
-            <a onclick="reser()" class="reserve">Reserve este Tour</a>
+            <a onclick="reser()" class="reserve">Reserve este Tour: {{link.currency}} {{link.price}} {{link.payinf}}</a>
         </h3>
         </div>
         </div>
@@ -78,7 +78,6 @@
     .overl{position: absolute;bottom: 0px;width: 100%;height: 40px;z-index: 1;right: -40px;}
     .overl img{width: 100%;}
     .peque{color:#3365f6;font-size: 22px;}
-        .reserve{margin: 2px;display: inline-block; background: yellow;border-radius: 30px;padding: 10px 20px;font-size: 16px;}
         .reserve:hover{cursor: pointer;}
         @media screen and (max-width:833px){
         .banner h3{font-size: 30px;width: 100%;}
@@ -150,6 +149,7 @@
     .payment{display: none;}
     .payment2{display:block;}
     .payu{border: 1px solid yellow;border-radius: 10px;margin: 10px;padding: 10px;}
+    .reserve{margin: 20px;display: inline-block; background:#353795;border-radius: 30px;padding: 10px 20px;font-size: 20px;}
     #payment{width: 100%;height: 100%; position:fixed;z-index:30;background: #fff;top: 0;left: 0;}
     #payment h5{font-size: 30px;padding: 10px;color: #000;display: block;}
     .regresar{background: #777 url(/static/img/back.png)no-repeat left 10px center;background-size:30px;color: white;width: 100%;padding: 20px;font-size: 16px;display: block;padding-left: 40px;}
