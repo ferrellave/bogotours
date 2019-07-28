@@ -12,7 +12,11 @@
             <a href="{%url 'web.page' link.slug%}">{{link.title}} <br>
             <span>{{link.header}}</span>
              </a>
+            {%if link.price == "0"%}
+
+            {%else%}
             <a onclick="reser()" class="reserve">Reserve este Tour: {{link.currency}} {{link.price}} {{link.payinf}}</a>
+            {%endif%}
         </h3>
         </div>
         </div>
