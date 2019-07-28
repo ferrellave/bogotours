@@ -178,7 +178,7 @@ def contact(request):
             correo = formulario.cleaned_data['correo']
             asunto = correo, 'Your Message to Bogotours has Send'
             mensaje = formulario.cleaned_data['mensaje']
-            mail = EmailMessage(asunto, mensaje, to=[correo, 'richiepac@gmail.com'])
+            mail = EmailMessage(asunto, mensaje, to=[correo, 'richiepac@gmail.com', 'bogotourstravel@gmail.com'])
             mail.send()
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'), {'titulo': titulo})
     else:
