@@ -42,6 +42,16 @@ def home(request):
     profiles = Profile.objects.all().order_by('-id')
     profilesn = Profile.objects.all().order_by('-id')
     client_ip, is_routable = get_client_ip(request)
+    client_ip1 = get_client_ip(request, request_header_order=['HTTP_CLIENT_IP'])
+    client_ip2 = get_client_ip(request, request_header_order=['HTTP_X_REAL_IP'])
+    client_ip3 = get_client_ip(request, request_header_order=['HTTP_X_FORWARDED'])
+    client_ip4 = get_client_ip(request, request_header_order=['HTTP_X_CLUSTER_CLIENT_IP'])
+    client_ip5 = get_client_ip(request, request_header_order=['HTTP_FORWARDED_FOR'])
+    client_ip6 = get_client_ip(request, request_header_order=['HTTP__FORWARDED'])
+    client_ip7 = get_client_ip(request, request_header_order=['HTTP_VIA'])
+    client_ip8 = get_client_ip(request, request_header_order=['REMOTE_ADDR'])
+    client_ip9 = get_client_ip(request, request_header_order=['HTTP_X_FORWARDED_FOR'])
+    client_ip10 = get_client_ip(request, request_header_order=['X_FORWARDED_FOR'])
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
