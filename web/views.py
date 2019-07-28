@@ -22,6 +22,7 @@ from django.middleware.csrf import CsrfViewMiddleware, get_token
 from django.utils.decorators import available_attrs, decorator_from_middleware
 from django.utils import timezone
 
+from ipware.ip import get_ip_address_from_request
 
 def home(request):
 
@@ -40,6 +41,7 @@ def home(request):
     profilem = Profile.objects.all()[:7]
     profiles = Profile.objects.all().order_by('-id')
     profilesn = Profile.objects.all().order_by('-id')
+    user_ip = get_ip_address_from_request(request)
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
