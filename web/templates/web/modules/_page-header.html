@@ -15,7 +15,7 @@
             {%if link.price == "0"%}
 
             {%else%}
-            <a onclick="reser()" class="reserve">Reserve este Tour: {{link.currency}} {{link.price}} {{link.payinf}}</a>
+            <a onclick="reser()" class="reserve">{{link.currency}} {{link.price}} {{link.payinf}}</a>
             {%endif%}
         </h3>
         </div>
@@ -98,7 +98,7 @@
 <section class="payment" id="payment">
     <a class="regresar" href="javascript:reser()">Regresar</a>
     <div class="payu">
-    <h5>RESERVAR EL TOUR: {{link.title}} - {{link.header}}</h5>
+    <h5>RESERVAR:{{link.title}} - {{link.header}}</h5>
     <p><strong>Costo Total: {{link.currency}} {{link.price}} {{link.payinf}}</strong></p>
     <br><span>Seleccione su tipo de pago:</span>
     <br>
