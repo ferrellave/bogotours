@@ -11,8 +11,8 @@
         <h3>
             <a href="{%url 'web.page' link.slug%}">{{link.title}} <br>
             <span>{{link.header}}</span>
-             </a></br>
-            <a class="reserve" onclick="reservacion()">Reserve este Tour</a>
+             </a>
+            <a onclick="reser()" class="reserve">Reserve este Tour</a>
         </h3>
         </div>
         </div>
@@ -24,7 +24,7 @@
     {%endfor%}
 
 <script type="text/javascript">
-    function reservacion(){
+    function reser(){
         if(document.getElementById('payment').className == 'payment'){
             document.getElementById('payment').className = 'payment2';
         } else if (document.getElementById('payment').className == 'payment2'){
