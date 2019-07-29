@@ -196,7 +196,7 @@ def booking(request, slug):
         form = Bookingform(request.POST)
         if form.is_valid():
             cleaned_data = form.cleaned_data
-            item = cleaned_data.get('page')
+            page = cleaned_data.get('page')
             date = cleaned_data.get('date')
             first = cleaned_data.get('first')
             last = cleaned_data.get('last')
@@ -206,7 +206,7 @@ def booking(request, slug):
             message = cleaned_data.get('message')
             booking = Booking()
             booking.date = date
-            booking.item = item
+            booking.page = page
             booking.firstname = first
             booking.lastname = last
             booking.phone = phone
