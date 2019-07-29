@@ -190,13 +190,21 @@ def contact(request):
 def booking(request, slug):
     def get_context_data(self, **kwargs):
         context = super(booking, self).get_context_data(**kwargs)
-        context['page'] = Page.objects.get(slug = slug)
+        context['tour'] = Page.objects.get(slug = slug)
+        context['photo'] = Photo.objects.all().order_by('id')
+        context['blog'] = Blog.objects.all().order_by('-id')
+        context['tag'] = Tag.objects.all().order_by('-id')
+        context['page'] = Page.objects.all().order_by('ordering')
+        context['pages'] = Page.objects.all().order_by('ordering')
+        context['group'] = Group.objects.all().order_by('-id')
+        context['groups'] = Group.objects.all().order_by('-id')
+        context['profile'] = Profile.objects.all().order_by('-id')
+        context['profiles'] = Profile.objects.all().order_by('-id')
         return context
     if request.method == 'POST':
         form = Bookingform(request.POST)
         if form.is_valid():
             cleaned_data = form.cleaned_data
-            page = cleaned_data.get('page')
             date = cleaned_data.get('date')
             first = cleaned_data.get('first')
             last = cleaned_data.get('last')
@@ -206,7 +214,7 @@ def booking(request, slug):
             message = cleaned_data.get('message')
             booking = Booking()
             booking.date = date
-            booking.page = page
+            booking.page = tour
             booking.firstname = first
             booking.lastname = last
             booking.phone = phone
