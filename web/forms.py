@@ -16,7 +16,6 @@ class FormularioContacto(forms.Form):
 
 class Bookingform(forms.Form):
 
-	page = forms.ModelChoiceField(queryset=Page.objects.get(slug = slug),label="Seleccione el Tour de su preferencia",required=True)
 	date = forms.DateField(
         label='¿Que dia prefiere agendar?', 
         widget=forms.TextInput(attrs={'class':'form-control'})
