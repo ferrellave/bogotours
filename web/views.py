@@ -188,11 +188,7 @@ def contact(request):
     return render_to_response('web/contact.html', locals(),
                                 context_instance=RequestContext(request))
 
-
-def booking(request):
-    if not request.user.is_authenticated():
-        return redirect(reverse('web.signup'))
-
+def booking(request, slug):
     def get_context_data(self, **kwargs):
         context = super(booking, self).get_context_data(**kwargs)
         return context
