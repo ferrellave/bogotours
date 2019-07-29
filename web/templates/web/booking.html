@@ -12,8 +12,8 @@
   } );
   </script>
 
-<section class="contact" autocomplete="off" >
-<form method="post" action="" enctype="multipart/form-data">
+<section class="contact" >
+<form method="post" action="" enctype="multipart/form-data" autocomplete="off">
   <h3>Reserva un Tour en Bogotá</h3>
                 {% csrf_token %}
                 {{ form.as_p }}
