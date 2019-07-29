@@ -11,12 +11,15 @@ class ProfileAdmin(admin.ModelAdmin):
 class GroupsAdmin(admin.ModelAdmin):
     list_display = ('id', 'first', 'child')
 
+class PhotoAdmin(admin.ModelAdmin):
+    list_display = ('title', 'file', 'page')
+
 admin.site.register(Item, ItemsAdmin)
 admin.site.register(Category)
 admin.site.register(Section)
 admin.site.register(Tag)
 admin.site.register(Language)
-admin.site.register(Photo)
+admin.site.register(Photo, PhotoAdmin)
 admin.site.register(Blog)
 admin.site.register(Booking)
 admin.site.register(Page)
