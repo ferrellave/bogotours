@@ -203,6 +203,7 @@ def booking(request, slug):
         return context
     if request.method == 'POST':
         form = Bookingform(request.POST)
+        context['tour'] = Page.objects.get(slug = slug)
         if form.is_valid():
             cleaned_data = form.cleaned_data
             date = cleaned_data.get('date')
