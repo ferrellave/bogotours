@@ -190,7 +190,6 @@ def contact(request):
 def booking(request, slug):
     def get_context_data(self, **kwargs):
         context = super(booking, self).get_context_data(**kwargs)
-        context['page'] = Page.objects.get(slug = slug)
         return context
     if request.method == 'POST':
         form = Bookingform(request.POST)
