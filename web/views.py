@@ -128,7 +128,6 @@ def itemgallery(request, slug):
     return render_to_response(template,locals(),
                                 context_instance=RequestContext(request))
 
-
 def blog(request, slug):
 
     template = 'web/blog.html'
@@ -188,15 +187,16 @@ def contact(request):
     return render_to_response('web/contact.html', locals(),
                                 context_instance=RequestContext(request))
 
-def booking(request):
+def booking(request, slug):
     def get_context_data(self, **kwargs):
         context = super(booking, self).get_context_data(**kwargs)
+        context['page'] = Page.objects.get(slug = slug)
         return context
     if request.method == 'POST':
         form = Bookingform(request.POST)
         if form.is_valid():
             cleaned_data = form.cleaned_data
-            item = cleaned_data.get('item')
+            item = cleaned_data.get('page')
             date = cleaned_data.get('date')
             first = cleaned_data.get('first')
             last = cleaned_data.get('last')
@@ -219,7 +219,6 @@ def booking(request):
     else:
         form = Bookingform()
     context = {'form': form}
-    context['item'] = Item.objects.all()
     return render(request, 'web/booking.html', context)
 
 def signup_view(request):

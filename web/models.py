@@ -234,6 +234,7 @@ class Photo(models.Model):
 
 class Booking(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Item")
+    page = models.ForeignKey(Page, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Page")
     date = models.DateField(blank=True, verbose_name="Date")
     firstname = models.CharField(max_length=300, verbose_name="First Name")
     lastname = models.CharField(max_length=300, verbose_name="Last Name")
