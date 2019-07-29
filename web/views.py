@@ -227,6 +227,16 @@ def booking(request, slug):
     else:
         form = Bookingform()
     context = {'form': form}
+    context['tour'] = Page.objects.get(slug = slug)
+    context['photo'] = Photo.objects.all().order_by('id')
+    context['blog'] = Blog.objects.all().order_by('-id')
+    context['tag'] = Tag.objects.all().order_by('-id')
+    context['page'] = Page.objects.all().order_by('ordering')
+    context['pages'] = Page.objects.all().order_by('ordering')
+    context['group'] = Group.objects.all().order_by('-id')
+    context['groups'] = Group.objects.all().order_by('-id')
+    context['profile'] = Profile.objects.all().order_by('-id')
+    context['profiles'] = Profile.objects.all().order_by('-id')
     return render(request, 'web/booking.html', context)
 
 def signup_view(request):
