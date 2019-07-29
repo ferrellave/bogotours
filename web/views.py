@@ -188,7 +188,7 @@ def contact(request):
     return render_to_response('web/contact.html', locals(),
                                 context_instance=RequestContext(request))
 
-def booking(request, slug):
+def booking(request):
     def get_context_data(self, **kwargs):
         context = super(booking, self).get_context_data(**kwargs)
         return context
