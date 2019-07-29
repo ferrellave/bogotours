@@ -219,6 +219,7 @@ def booking(request, slug):
     else:
         form = Bookingform()
     context = {'form': form}
+    context['page'] = Page.objects.get(slug = slug)
     return render(request, 'web/booking.html', context)
 
 def signup_view(request):
