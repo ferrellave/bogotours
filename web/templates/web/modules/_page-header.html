@@ -102,6 +102,8 @@
 
         <table>
             <td class="paytd70">
+                <div id="contenidol"></div>
+
         <p><strong>Costo Total: {{link.currency}} {{link.price}} {{link.payinf}}</strong></p>
         <br><span>Seleccione su tipo de pago:</span>
         <br>
@@ -154,14 +156,16 @@
     </script>
 
 <script type="text/javascript">
-            function cargar(){
-            $("#capa").load('{%url 'web.booking' link.slug%}');
-        }
+        function cargarDiv(div,url)
+{
+      $(div).load(url);
+}
  
 
     function reser(){
         if(document.getElementById('payment').className == 'payment'){
             document.getElementById('payment').className = 'payment2';
+            cargarDiv("#contenidol","{%url 'web.booking' link.slug%}");
         } else if (document.getElementById('payment').className == 'payment2'){
             document.getElementById('payment').className = 'payment';
         }
