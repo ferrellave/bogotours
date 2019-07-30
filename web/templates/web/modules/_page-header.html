@@ -99,7 +99,7 @@
     <a class="regresar" href="javascript:reser()">Regresar</a>
     <div class="payu">
     <h5>RESERVAR:{{link.title}} - {{link.header}}</h5>
-    <div id="tabla" class="tabla"></div>
+
     <p><strong>Costo Total: {{link.currency}} {{link.price}} {{link.payinf}}</strong></p>
     <br><span>Seleccione su tipo de pago:</span>
     <br>
@@ -149,7 +149,6 @@
     function reser(){
         if(document.getElementById('payment').className == 'payment'){
             document.getElementById('payment').className = 'payment2';
-            cargar();
         } else if (document.getElementById('payment').className == 'payment2'){
             document.getElementById('payment').className = 'payment';
         }
