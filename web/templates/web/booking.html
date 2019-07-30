@@ -10,11 +10,12 @@
 
 <section class="contact" >
 <form method="post" action="" enctype="multipart/form-data" autocomplete="off">
-  <h3>Reserva {{tour.title}}</h3>
       {% csrf_token %}
       {% if message %}<span>{{ message }}</span>{% endif %}
-      <input class="form-control hasDatepicker" id="id_date" placeholder="Seleccione una fecha" type="text" name="date">
-
+      <p>
+      <label>Seleccione una fecha</label>
+      <input class="form-control hasDatepicker" id="id_date" type="text" name="date">
+      </p>
       <input class="form-control" id="id_tickets" placeholder="Cantidad de personas" type="number" min="1" max="100"name="tickets">
 
       <input class="form-control" id="id_first" placeholder="Nombre y Apellido" type="text" name="first">
