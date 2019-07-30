@@ -99,6 +99,7 @@
     <a class="regresar" href="javascript:reser()">Regresar</a>
     <div class="payu">
     <h5>RESERVAR:{{link.title}} - {{link.header}}</h5>
+    <div id="tabla" class="tabla"></div>
     <p><strong>Costo Total: {{link.currency}} {{link.price}} {{link.payinf}}</strong></p>
     <br><span>Seleccione su tipo de pago:</span>
     <br>
@@ -140,9 +141,23 @@
 
 
 <script type="text/javascript">
+            function cargar(){
+            var url="{%url 'web.booking' link.slug%}"
+            $.ajax({   
+                type: "POST",
+                url:url,
+                data:{},
+                success: function(datos){       
+                    $('#tabla').html(datos);
+                }
+            });
+        }
+ 
+
     function reser(){
         if(document.getElementById('payment').className == 'payment'){
             document.getElementById('payment').className = 'payment2';
+            cargar();
         } else if (document.getElementById('payment').className == 'payment2'){
             document.getElementById('payment').className = 'payment';
         }
@@ -154,9 +169,10 @@
     .payment2{display:block;}
     .payu{border: 1px solid yellow;border-radius: 10px;margin: 10px;padding: 10px;}
     .reserve{margin: 5px;display: inline-block; background:#353795;border-radius: 20px;padding: 5px 10px;font-size: 14px;text-align: center;}
-    #payment{width: 100%;height: 100%; position:fixed;z-index:30;background: #fff;top: 0;left: 0;}
+    #payment{width: 100%;height: 100%; position:fixed;z-index:30;background: rgba(0,0,0,0.5);top: 0;left: 0;}
     #payment h5{font-size: 30px;padding: 10px;color: #000;display: block;}
     .regresar{background: #777 url(/static/img/back.png)no-repeat left 10px center;background-size:30px;color: white;width: 100%;padding: 20px;font-size: 16px;display: block;padding-left: 40px;}
+    #tabla{width: 100%;height: 500px;}
 </style>
 
 

@@ -1,8 +1,4 @@
 
-{% extends 'web/_body.html' %}
-{% block title %}Bogotours{% endblock title %}
-{% block web_content %}
-
   <script>
   $( function() {
     $( "#id_date" ).datepicker({
@@ -14,13 +10,11 @@
 
 <section class="contact" >
 <form method="post" action="" enctype="multipart/form-data" autocomplete="off">
-  {{tour.title}}
-  <h3>Reserva un Tour en Bogotá</h3>
+  <h3>Reserva {{page.title}}</h3>
                 {% csrf_token %}
                 {{ form.as_p }}
 			<button type="submit">Reservar</button>
             </form>
-  }
 </section>
 
 <style type="text/css">
@@ -31,5 +25,3 @@
 	.contact form select{width: 100%;margin: 5px;padding: 5px;}
 	.contact form button{color: white;background: blue;padding: 10px;border-radius: 20px;font-size: 18px;border: none;}
 </style>
-{% endblock web_content %}
-
