@@ -101,18 +101,18 @@
     <h5>{{link.title}} - {{link.header}}</h5>
 
         <table>
-            <td>
+            <td class="paytd70">
         <p><strong>Costo Total: {{link.currency}} {{link.price}} {{link.payinf}}</strong></p>
         <br><span>Seleccione su tipo de pago:</span>
         <br>
                 <!-- Set up a container element for the button -->
         <div id="paypal-button-container"></div>
         </td>
-        <td>
+        <td class="paytd30">
             <figure>
             {%for profile in profile %}
             {%if profile.page.title == link.title%}
-            <img class="overlogo" src="/media/{{profile.photo}}">
+            <img src="/media/{{profile.photo}}">
             {%endif%}
             {%endfor%}
             </figure>
@@ -178,7 +178,9 @@
     .regresar{font-weight:normal;background: #000 url(/static/img/back.png)no-repeat left 10px center;background-size:20px;color: white;width: 100%;padding: 10px;font-size: 14px;display: block;padding-left: 40px;}
     #payment table{width: 100%;}
     #payment table td{display: inline-block;vertical-align: top;}
-    #payment table td figure img{width: 200px;}
+    #payment table td figure img{width: 100%;}
+    .paytd70{width: 69%;}
+    .paytd30{width: 30%;}
     #tabla{width: 100%;height: 500px;}
             @media screen and (max-width:833px){
         #payment{padding: 10px;}
