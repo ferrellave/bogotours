@@ -28,10 +28,6 @@ class Bookingform(forms.Form):
         label='¿Cual es su nombre?', 
         widget=forms.TextInput(attrs={'class':'form-control'})
         )
-	last = forms.CharField(
-        label='Cual es su Apellido?', 
-        widget=forms.TextInput(attrs={'class':'form-control'})
-        )
 	phone = forms.CharField(
         label='Indiquenos un numero de contacto', 
         widget=forms.TextInput(attrs={'class':'form-control'})
@@ -39,10 +35,6 @@ class Bookingform(forms.Form):
 	email = forms.EmailField(
         label='Indiquenos un Email', 
         widget=forms.EmailInput(attrs={'class':'form-control'})
-        )
-	message = forms.CharField(
-        label='Por favor escriba un mensaje adicional', 
-        widget=forms.Textarea(attrs={'class':'form-control'})
         )
 
 class signup_form(forms.Form):

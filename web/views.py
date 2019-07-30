@@ -208,19 +208,15 @@ def booking(request, slug):
             cleaned_data = form.cleaned_data
             date = cleaned_data.get('date')
             first = cleaned_data.get('first')
-            last = cleaned_data.get('last')
             phone = cleaned_data.get('phone')
             tickets = cleaned_data.get('tickets')
             email = cleaned_data.get('email')
-            message = cleaned_data.get('message')
             booking = Booking()
             booking.date = date
             booking.page = tour
             booking.firstname = first
-            booking.lastname = last
             booking.phone = phone
             booking.email = email
-            booking.message = message
             booking.tickets = tickets
             booking.save()
             messages = 'Booking success'
