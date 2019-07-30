@@ -12,22 +12,9 @@
 <form method="post" action="" enctype="multipart/form-data" autocomplete="off">
   <h3>Reserva {{tour.title}}</h3>
                 {% csrf_token %}
-      {% if message %}<span>{{ message }}</span>{% endif %}
-      <input class="form-control hasDatepicker" id="id_date" placeholder="Seleccione una fecha" type="text" name="date">
-
-      <input class="form-control" id="id_tickets" placeholder="Cantidad de personas" type="number" min="1" max="100"name="tickets">
-
-      <input class="form-control" id="id_first" placeholder="Nombre y Apellido" type="text" name="first">
-
-      <input class="form-control" id="id_phone" placeholder="Número de Telefono" type="text" name="phone">
-
-      <input class="form-control" id="id_email" placeholder="Correo de contacto" type="email" name="email">
-
-			<button type="submit" class="reservarb">Reservar</button>
+                {{ form.as_p }}
+			<button type="submit">Reservar</button>
             </form>
-
-
-
 </section>
 
 <style type="text/css">
@@ -36,7 +23,5 @@
 	.contact form textarea{width: 100%;border-radius: 5px;margin: 5px;padding: 5px;}
 	.contact form input{width: 100%;margin: 5px;padding: 5px;}
 	.contact form select{width: 100%;margin: 5px;padding: 5px;}
-	
-    .reservarb{display: inline-block;padding: 20px;background: #353795;text-align: center;font-size: 28px;margin: 10px auto;color: #fff;width: 100%;border: none;}
-  .reservarb:hover{cursor: pointer;}
+	.contact form button{color: white;background: blue;padding: 10px;border-radius: 20px;font-size: 18px;border: none;}
 </style>
